@@ -1,0 +1,10 @@
+<configuration>
+
+  <threshold>85</threshold>
+  <weight>
+    <optimistic>1</optimistic>
+    <expected>2</expected>
+    <pesimistic>1</pesimistic>
+  </weight>
+
+</configuration>

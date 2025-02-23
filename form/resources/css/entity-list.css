@@ -1,0 +1,26 @@
+@import "table/table.css";
+
+div.tableset {
+    display:block;
+    margin:auto;
+    width:60%;
+    max-width:90%;
+}
+
+div.line {
+    display:block;
+    with:95%;
+}
+
+div.linkset {
+    float:right;
+    clear:both;
+    display:block;
+    margin:var(--element-margin);
+    font-size:small;
+}
+
+div.linkset a {
+    text-decoration:none;
+}
+

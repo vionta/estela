@@ -1,0 +1,86 @@
+
+header{
+    max-width:var(--main-width);
+    margin:auto;
+    margin-left:4em;
+}
+
+header h1 {
+    font-family:'Century Gothic',Helvetica;
+    margin-top:var(--micro-margin);
+    margin-bottom: var(--triple-margin); 
+}
+
+
+/* ....... Top left links ....... */
+
+div#header-links {
+
+    background-color:#2054a2;
+
+    padding-top: var(--simple-margin);
+    padding-bottom: var(--simple-margin);
+    margin-left:40%;
+    margin-right: 20%;
+    margin-top:0;
+
+    display: flex;
+    flex-direction: row;
+
+    width:40%;
+    
+}
+
+div#header-links h1 , div#header-links h2 {
+/*      display: inline ; */ 
+}
+
+div#header-links a {
+    color:white ;
+    margin:auto;
+}
+ 
+.navigation-links a {
+  color: var(--color-two);
+  text-decoration:none;
+  font-weight:500;
+  margin-left: var(--double-margin);
+  margin-top: var(--simple-margin);
+  margin-bottom: var(--double-margin);
+}
+
+
+#header-links a {}
+
+footer {
+
+    padding-top: var(--cuadruple-margin);
+    display: flex;
+    flex-direction: row;
+    max-width:var(  --main-width);
+    margin:auto;
+    margin-top: 4em;
+}
+
+footer div {
+    margin-left: 2em;
+    margin-right:2em;
+}
+
+footer p {
+    font-size:90%;
+    font-weight:300;
+}
+
+footer ul li {
+    font-size:90%;
+    font-weight:300;
+}
+
+div.footer-group {
+   border-top: 8px solid #2054a2;
+}
+
+div#footer-links a {
+   display:block;
+}

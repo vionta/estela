@@ -1,0 +1,31 @@
+
+
+@import "shared.css";
+
+@import "header-footer.css" ;
+
+body {
+    margin:auto;
+}
+
+div#intro {
+    width:20em;
+    margin: auto;
+}
+
+
+div#intro h3 {
+    font-weigth:600;
+}
+
+div#intro a {
+    font-weigth:900;
+    font-size: 110%;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20"
+   height="20"
+   viewBox="0 0 5.2916665 5.2916665"
+   version="1.1"
+   id="svg8139"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="acronym.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview8141"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="18.992701"
+     inkscape:cx="20.850115"
+     inkscape:cy="20.639508"
+     inkscape:window-width="1920"
+     inkscape:window-height="1094"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs8136">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient8760">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop8756" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop8758" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8760"
+       id="linearGradient8762"
+       x1="2.5898168"
+       y1="0.045961078"
+       x2="6.9833469"
+       y2="0.045961078"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g10444"
+       transform="matrix(0.50282578,0,0,0.50282578,-0.00631206,0.03033052)">
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:6.35px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+         x="0.58619988"
+         y="5.0431495"
+         id="text8368"><tspan
+           sodipodi:role="line"
+           id="tspan8366"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+           x="0.58619988"
+           y="5.0431495">A</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:6.35px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+         x="4.9736018"
+         y="5.0431495"
+         id="text8766"><tspan
+           sodipodi:role="line"
+           id="tspan8764"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+           x="4.9736018"
+           y="5.0431495">C</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:6.35px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+         x="0.8931579"
+         y="9.8613701"
+         id="text8770"><tspan
+           sodipodi:role="line"
+           id="tspan8768"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+           x="0.8931579"
+           y="9.8613701">R</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:6.35px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+         x="4.8108211"
+         y="9.8613701"
+         id="text8774"><tspan
+           sodipodi:role="line"
+           id="tspan8772"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+           x="4.8108211"
+           y="9.8613701">O</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,67 @@
+
+
+@import "shared.css";
+
+
+@import "list/table/summary-table.css" ;
+@import "list/entity-list.css" ;
+
+@import "header-footer.css" ;
+
+main {
+    width:50em;
+}
+
+div.plan-group {
+    display: flex;
+    flex-direction: column;
+}
+
+div.plan-group div.inline {
+    max-width:40em;
+    text-align:left;
+}
+
+div.plan-group table {
+    margin:auto;
+}
+
+table.plan-group-result td {
+    padding-left:var(--double-margin);
+    padding-right:var(--simple-margin);
+    border:0;
+    font-weight:500;
+    font-size: 110%;
+}
+
+table.results-gray-table {
+    background-color: #eceef0ff;
+}   
+
+table.results-gray-table td {
+    padding:var(--double-margin);
+    vertical-align: top;
+    border:0;
+    border-color:#eceef0 ;
+}
+
+td.right  {
+    text-align: right;
+}
+
+td.left {
+    text-align: left;
+}
+
+th a, td a {
+    color:#000000;
+}
+
+
+img.hint-icon-result {
+    margin-right: var(--simple-margin);
+}
+
+
+
+

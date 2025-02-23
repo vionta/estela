@@ -1,0 +1,31 @@
+
+@import "shared.css" ;
+
+:root {
+  --color-one: black;
+  --color-two: #121255;
+  --color-three: brown;
+  --color-four: blue;
+
+  --background-one: black;
+  --background-two: #eaeaff;
+  --background-three: brown;
+  --background-four: blue;
+
+  /* Button background */
+  --background-positive: blue;
+  --background-negative: red;
+
+  --micro-margin: 0.05em;
+  --mini-margin: 0.1em;
+  --simple-margin: 0.5em;
+  --double-margin: 1em;
+  --triple-margin: 1.5em;
+  --cuadruple-margin: 2em;
+
+  --main-width: 65em;
+
+}
+
+
+

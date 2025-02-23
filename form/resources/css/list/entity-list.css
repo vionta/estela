@@ -1,0 +1,41 @@
+@import "table/table.css";
+
+table.entity-list {
+    min-width: 40em;
+    max-width:90%;
+}
+
+table.entity-list th {
+    font-size:125%;
+}
+
+table.entity-list td {
+    font-size:130%;
+}
+
+/*
+div.tableset {
+    display:block;
+    margin:auto;
+    width:60%;
+    max-width:90%;
+}
+*/
+
+div.line {
+    display:block;
+    with:95%;
+}
+
+div.linkset {
+    float:right;
+    clear:both;
+    display:block;
+    margin:var(--element-margin);
+    font-size:small;
+}
+
+div.linkset a {
+    text-decoration:none;
+}
+

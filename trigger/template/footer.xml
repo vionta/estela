@@ -1,0 +1,29 @@
+<footer>
+
+  <div id="footer-links" class="navigation-links footer-group" >
+	    <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>
+	    <a href="/index/PerformancePlanOrReport.html"> Manage Plans </a>
+	    <a href="/index/plan-group.html">Plan Groups</a>
+	    <a href="/view/plan-groups.html">Follow up</a>
+	    <a href="/static-form/evaluation-configuration.xml"> Configuration</a>
+  </div>
+  <div class="footer-group" >
+	<p><b>Salvora showcase application.</b></p>
+	<p>This sample application is a showcase of Salvora. Salvora is an small tool for managing xforms, documents and transformations directly from the local system. You can learn more about Salvora at https:/github.com/vionta/salvora</p>
+  </div>
+  <div class="footer-group" >
+    <p><b>Acknowledgements</b></p>
+    <p>Salvora is based on several key components including: </p>
+    <ul>
+      <li>Xslt Forms</li>
+      <li>Saxon</li>
+      <li>Morgana XProc</li>
+      <li>Quarkus</li>
+      <li>Vert.x</li>
+    </ul>
+  </div>
+  <div class="footer-group" >
+    <p><b>Contact</b></p>
+    <p>Salvora is provided by Vionta.net.</p>
+  </div>
+</footer>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data       xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" rsu:weight="1" rsu:preferred-visualization=""  >
+  <selection-options>
+
+    <evaluation-criteria>
+      <option><value>bigger</value><label>Bigger</label></option>
+      <option><value>smaller</value><label>Smaller</label></option>
+      <option><value>equals-or-bigger</value><label>Equals or Bigger</label></option>
+      <option><value>equals-or-smaller</value><label>Equals or Smaller</label></option>
+<!--      <option><value>equals-or-bigger-at-deadline</value><label> Than</label></option> -->
+      <option additional-reference="true" ><value>closer-than</value><label>Closer Than</label></option>
+      <option><value>sooner</value><label>Sooner</label></option>
+      <option><value>later</value><label>Later</label></option>
+    </evaluation-criteria>
+    <success-criteria>
+      <option><value>bigger</value><label>Bigger Than</label></option>
+      <option><value>smaller</value><label>Smaller Than</label></option>
+      <option><value>equals-or-bigger</value><label>Equals or Bigger Than</label></option>
+      <option><value>equals-or-smaller</value><label>Equals or Smaller Than</label></option>
+<!--      <option><value>equals-or-bigger-at-deadline</value><label> Than</label></option> -->
+      <option additional-reference="true" ><value>closer-than</value><label>Closer than</label></option>
+      <option><value>sooner</value><label>Sooner Than</label></option>
+      <option><value>later</value><label>Later Than</label></option>
+    </success-criteria>
+
+
+
+    
+    <!-- 
+	 not-significative-over
+	 not-significative-below
+	 not-significative-before
+	 not-significative-after
+    -->
+    
+  </selection-options>
+  <default-elements>
+    <reference type="optimistic" value="" enabled="false" />
+    <reference type="expected" value="1" enabled="true" />
+    <reference type="pesimistic" value="" enabled="false" />
+    <evaluation-criteria type="bigger" />
+    <success-criteria type="bigger" value="1" /> 
+  </default-elements>
+
+  <visualization-options>
+      <option><value>trend</value><label>Trend</label></option>
+      <option><value>vertical-bars</value><label>Vertical Bars</label></option>
+      <option><value>horizontal-bars</value><label>Horizontal Bars</label></option>
+      <option><value>pie</value><label>Pie</label></option>
+      <option><value>gauge</value><label>Gauge</label></option>
+  </visualization-options>
+
+</data>
+

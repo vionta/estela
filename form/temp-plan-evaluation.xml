@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/resources/xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<?css-conversion no?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:xf="http://www.w3.org/2002/xforms"
+      xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <title>Plan evaluation</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+    <xf:model id="m">
+      <xf:instance id="entity" resource="/collections/PerformancePlanOrReport/INSTANCE_CODE.xml"/>
+
+      <xf:instance id="evaluation-options" resource="/conf/evaluation-options.xml"/>
+
+      <xf:instance id="configuration">
+        <data xmlns="">
+          <location>/collections/PerformancePlanOrReport/</location>
+          <url>INSTANCE_CODE-initial.xml</url>
+        </data>
+      </xf:instance>
+
+      <xf:bind ref="instance('entity')//@enabled" type="xf:boolean" />
+
+      <xf:bind nodeset="instance('configuration')/url"
+               type="xsd:string"
+               calculate="concat(instance('configuration')/location, instance('entity')/code, '.xml')"
+                  readonly="false()"/>
+      <xf:submission id="save" method="put" replace="none" instance="entity">
+        <xf:resource value="instance('configuration')/url"/>
+        <xf:message ev:event="xforms-submit-error" ev:default="cancel">A submission error
+	(<xf:output value="event('error-type')"/>) occurred.</xf:message>
+      </xf:submission>
+      
+      <xf:submission id="list"
+                        reload="page"
+                        method="get"
+                        action="/index/PerformancePlanOrReport.html"/>
+
+      
+    </xf:model>
+  </head>
+  <body>
+    <h1>Plan Evaluation</h1>
+    <div xmlns="">
+
+      <xf:label >Plan  
+	  <xf:output ref="Name" />
+      </xf:label>
+
+      <xf:repeat ref="instance('entity')//Goal"  appearance="compact">
+	<xf:repeat ref="Objective" appearance="compact">
+        <xf:output ref="Name" />
+	<xf:repeat ref="PerformanceIndicator" appearance="compact">
+          <xf:output ref="Name" />
+	  <xf:output ref="MeasurementDimension" />
+	  <xf:label >Weight 
+	  <xf:input ref="@weight" />
+	  </xf:label>
+	  <xf:label >Weight 
+	  <xf:input ref="@preferred-visualization" />
+	  </xf:label>
+	  <xf:trigger  ref=".[not(./@weight)]" >
+	    <xf:label>Add Indicator evaluation</xf:label>
+	    <xf:action ev:event="DOMActivate">
+	      <xf:setvalue ref="@rsu:weight" value="1"/>
+	      <xf:setvalue ref="@rsu:preferred-vusualization" value=""/>
+	    </xf:action>
+	    
+          </xf:trigger>
+
+	  <xf:trigger  ref=".[not(./reference)]" >
+	    <xf:label>Evaluate by reference</xf:label>
+	    <xf:action ev:event="DOMActivate">
+	      <xf:insert origin="instance('evaluation-options')//default-elements/reference"
+			 context="."
+			 ref="reference"
+			 at="last()"
+			 position="after" />
+	      <xf:insert origin="instance('evaluation-options')//default-elements/evaluation-criteria"
+			 context="."
+			 ref="evaluation-criteria"
+			 at="last()"
+			 position="after" />
+	      <xf:delete ref="success-criteria" />
+	    </xf:action>
+          </xf:trigger>
+	  <xf:trigger  ref=".[not(./success-criteria)]" >
+	    <xf:label>Evaluate by Success Criteria</xf:label>
+	    <xf:action ev:event="DOMActivate">
+	      <xf:insert origin="instance('evaluation-options')//default-elements/success-criteria"
+			 context="."
+			 ref="success-criteria"
+			 at="last()"
+			 position="after" />
+
+	      <xf:delete ref="reference" />
+	      <xf:delete ref="evaluation-criteria" />
+	    </xf:action>
+          </xf:trigger>
+	  <xf:repeat ref="reference" > 
+	    <xf:input ref="@enabled" />
+	    
+	    <xf:output ref="@type" />
+	    <xf:input ref="@value" />
+	  </xf:repeat>
+	  <xf:repeat ref="evaluation-criteria" >
+	    <xf:select1 ref="@type" >
+	      <xf:label>Type</xf:label>
+	      <xf:itemset ref="instance('evaluation-options')/selection-options/evaluation-criteria/option" >
+		    <xf:label ref="label/text()" />
+		    <xf:value ref="value/text()" />
+		  </xf:itemset>
+	    </xf:select1>
+	    
+	    <xf:input ref="@value" />
+	  </xf:repeat>
+	  <xf:repeat ref="success-criteria" >
+	    <xf:select1 ref="@type" >
+	      <xf:label>Type</xf:label>
+	      <xf:itemset ref="instance('evaluation-options')/selection-options/success-criteria/option" >
+		<xf:label ref="label/text()" />
+		<xf:value ref="value/text()" />
+	      </xf:itemset>
+	    </xf:select1>
+		    
+	    
+	    <xf:input ref="@value" />
+	  </xf:repeat>
+	  <xf:trigger  ref=".[./success-criteria]" >
+	    <xf:label>Add Success Criteria</xf:label>
+	    <xf:action ev:event="DOMActivate">
+	      <xf:insert origin="instance('evaluation-options')//default-elements/success-criteria"
+			 context="."
+			 ref="success-criteria"
+			 at="last()"
+			 position="after" />
+	    </xf:action>
+	  </xf:trigger>
+	</xf:repeat>
+      </xf:repeat>
+      </xf:repeat>
+    </div>
+      <div>
+         <div class="form-action-button-set">
+            <xf:trigger class="cancel-button" >
+               <xf:label>Cancel</xf:label>
+               <xf:action ev:event="DOMActivate">
+                  <xf:send submission="list"/>
+               </xf:action>
+            </xf:trigger>
+            <xf:trigger class="positive-button" >
+               <xf:label>Save</xf:label>
+               <xf:action ev:event="DOMActivate">
+                  <xf:message level="ephemeral">Saving document ...</xf:message>
+                  <xf:send submission="save"/>
+                  <xf:send submission="list"/>
+               </xf:action>
+            </xf:trigger>
+         </div>
+      </div>
+  </body>
+</html>
+

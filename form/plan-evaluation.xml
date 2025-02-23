@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/resources/xsltforms/xsltforms.xsl" type="text/xsl"?><?xsltforms-options debug="no"?><?css-conversion no?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <title>Plan evaluation</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/form-style.css"/>
+    <xf:model id="m">
+      <xf:instance id="entity" resource="/collections/PerformancePlanOrReport/INSTANCE_CODE.xml"/>
+      <xf:instance id="evaluation-options" resource="/conf/evaluation-options.xml"/>
+      <xf:instance id="configuration">
+        <data xmlns="">
+          <location>/collections/PerformancePlanOrReport/</location>
+          <url>INSTANCE_CODE-initial.xml</url>
+        </data>
+      </xf:instance>
+      <xf:bind ref="instance('entity')//@enabled" type="xf:boolean"/>
+
+      <xf:bind ref="instance('entity')//reference/@value" relevant="./../@enabled = 'true' "/>
+
+      <xf:bind ref="instance('entity')//reference[@type='expected']/@enabled" readonly="true()"/>
+
+      <xf:bind ref="instance('entity')//@rsu:weight" type="xf:integer"/>
+      <xf:bind nodeset="instance('configuration')/url" type="xsd:string" calculate="concat(instance('configuration')/location, instance('entity')/code, '.xml')" readonly="false()"/>
+      <xf:submission id="save" method="put" replace="none" instance="entity">
+        <xf:resource value="instance('configuration')/url"/>
+        <xf:message ev:event="xforms-submit-error" ev:default="cancel">A submission error
+	(<xf:output value="event('error-type')"/>) occurred.</xf:message>
+      </xf:submission>
+      <xf:submission id="list" reload="page" method="get" action="/index/PerformancePlanOrReport.html"/>
+    </xf:model>
+  </head>
+  <body><div class="header-content" xmlns="">
+  <link rel="stylesheet" type="text/css" href="/resources/css/follow-up.css"/>
+
+  <div id="header-links" class="navigation-links">
+    
+    <a href="/home.html">
+      <img src="/resources/img/estela/estela-white-top-icon-home.png" class="top-white-icon"/>
+    Home</a>
+<!--
+	    <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>-->
+<a href="/index/PerformancePlanOrReport.html">
+  <img src="/resources/img/estela/estela-white-top-icon-plans.png" class="top-white-icon"/>
+    
+Plans </a>
+	    <!--
+	    <a href="/index/plan-group.html">Plan Groups</a>
+	    -->
+	    <a href="/view/plan-groups.html">
+	      <img src="/resources/img/estela/estela-white-top-icon-follow-up.png" class="top-white-icon"/>
+	    Follow up</a>
+	    <a href="/static-form/evaluation-configuration.xml">
+	      <img src="/resources/img/estela/estela-white-top-icon-configuration.png" class="top-white-icon"/>
+	    Configuration</a>
+  </div>
+  
+  <header>
+  <h1><img src="/resources/img/estela/estela-title-icon.png" id="title-icon"/>Estela
+  <img src="/resources/img/estela/estela-title-legend.png" id="title-icon" alt="The StratML Toolkit"/></h1>
+  </header>
+
+
+
+</div>
+    <div class="main main-content" xmlns="">
+      <div class="internal-space">
+	<h1>Plan Evaluation</h1>
+      </div>
+      <div class="internal-space">
+      <xf:label><h2>Plan <xf:output ref="Name"/></h2>
+      </xf:label>
+      <ul>
+	<xf:repeat ref="instance('entity')//Goal" appearance="compact">
+	  <li>
+	    <h3>Goal: <xf:output ref="Name"/></h3>
+	    <ul>
+	      <xf:repeat ref="Objective" appearance="compact">
+		<li>
+		  <h4>Objective: <xf:output ref="Name"/></h4>
+		  <ul>
+		    <xf:repeat ref="PerformanceIndicator" appearance="compact">
+<li>
+			<h5> Indicator: <xf:output ref="MeasurementDimension"/></h5>
+
+			  <line>
+			  <field>
+			  <xf:range ref="@rsu:weight" start="1" end="100" step="1" incremental="true">
+			    <xf:label>Weight</xf:label>
+			  </xf:range>
+			  </field>
+			  <field>
+			    
+			  <xf:select1 ref="@rsu:preferred-visualization">
+			    <xf:label>Preferred visualization</xf:label>
+			    <xf:itemset ref="instance('evaluation-options')/visualization-options/option">
+			      <xf:label ref="label/text()"/>
+			      <xf:value ref="value/text()"/>
+			    </xf:itemset>
+			  </xf:select1>
+			  </field>
+			  </line>
+			  <!-- TODO : Pendiente ................ -->
+			  <xf:trigger ref=".[not(./@rsu:weight)]">
+			    <xf:label>Add Indicator weight</xf:label>
+			    <xf:action ev:event="DOMActivate">
+			      <xf:insert context="." origin="instance('evaluation-options')/@rsu:weight"/>
+			    </xf:action>
+			  </xf:trigger>
+			  <xf:trigger ref=".[not(./@rsu:preferred-visualization)]">
+			    <xf:label>Add Preferred Visualization</xf:label>
+			    <xf:action ev:event="DOMActivate">
+			      <xf:insert context="." origin="instance('evaluation-options')/@rsu:preferred-visualization"/>
+			    </xf:action>
+			  </xf:trigger>
+
+
+			    <line>
+			<xf:trigger ref=".[not(./reference)]">
+			  <xf:label>Evaluate by reference</xf:label>
+			  <xf:action ev:event="DOMActivate">
+			    <xf:insert origin="instance('evaluation-options')//default-elements/reference" context="." ref="reference" at="last()" position="after"/>
+			    <xf:insert origin="instance('evaluation-options')//default-elements/evaluation-criteria" context="." ref="evaluation-criteria" at="last()" position="after"/>
+			    <xf:delete ref="success-criteria"/>
+			  </xf:action>
+			</xf:trigger>
+			<xf:trigger ref=".[not(./success-criteria)]">
+			  <xf:label>Evaluate by Success Criteria</xf:label>
+			  <xf:action ev:event="DOMActivate">
+			    <xf:insert origin="instance('evaluation-options')//default-elements/success-criteria" context="." ref="success-criteria" at="last()" position="after"/>
+			    <xf:delete ref="reference"/>
+			    <xf:delete ref="evaluation-criteria"/>
+			  </xf:action>
+			</xf:trigger>
+			    </line>
+			    <line>
+			      Target: <xf:output ref="MeasurementInstance[1]/TargetResult[1]/NumberOfUnits"/>
+			    </line>
+			<xf:repeat ref="evaluation-criteria">
+			  <line>
+			    <xf:select1 ref="@type">
+			    <xf:label>Type</xf:label>
+			    <xf:itemset ref="instance('evaluation-options')/selection-options/evaluation-criteria/option">
+			      <xf:label ref="label/text()"/>
+			      <xf:value ref="value/text()"/>
+			    </xf:itemset>
+			    </xf:select1>
+
+			  <xf:input ref="@value"/>
+
+			  </line>
+			</xf:repeat>
+			<xf:repeat ref="reference"> 
+			  <line>
+			      <xf:input ref="@enabled">
+				<xf:label><xf:output ref="@type"/>
+				</xf:label>
+			      </xf:input>
+			      <xf:input ref="@value"/>
+			  </line>
+
+			</xf:repeat>
+
+			<xf:repeat ref="success-criteria">
+			  <line>
+			    <field>
+			  <xf:select1 ref="@type">
+			    <xf:label>Type</xf:label>
+			    <xf:itemset ref="instance('evaluation-options')/selection-options/success-criteria/option">
+			      <xf:label ref="label/text()"/>
+			      <xf:value ref="value/text()"/>
+			    </xf:itemset>
+			  </xf:select1>
+			    </field>
+			    <!--
+			    <field>
+			  <xf:input ref="@value" />
+			  </field>
+			  -->
+			  </line>
+			</xf:repeat>
+			<xf:trigger ref=".[./success-criteria]">
+			  <xf:label>Add Success Criteria</xf:label>
+			  <xf:action ev:event="DOMActivate">
+			    <xf:insert origin="instance('evaluation-options')//default-elements/success-criteria" context="." ref="success-criteria" at="last()" position="after"/>
+			  </xf:action>
+			</xf:trigger>
+		      </li>
+		    </xf:repeat>
+		  </ul>
+		</li>
+	      </xf:repeat>
+	    </ul>
+	  </li>
+	</xf:repeat>
+      </ul>
+    </div>
+    <div>
+      <div class="final-button-set">
+	<div class="form-action-button-set">
+          <xf:trigger classs="cancel-button">
+            <xf:label>Cancel</xf:label>
+            <xf:action ev:event="DOMActivate">
+              <xf:send submission="list"/>
+            </xf:action>
+          </xf:trigger>
+          <xf:trigger class="positive-button">
+            <xf:label>Save</xf:label>
+            <xf:action ev:event="DOMActivate">
+              <xf:message level="ephemeral">Saving document ...</xf:message>
+              <xf:send submission="save"/>
+              <xf:send submission="list"/>
+            </xf:action>
+          </xf:trigger>
+	</div>
+      </div>
+    </div>
+  </div>
+<footer xmlns="">
+
+  <div id="footer-links" class="navigation-links footer-group">
+	    <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>
+	    <a href="/index/PerformancePlanOrReport.html"> Manage Plans </a>
+	    <a href="/index/plan-group.html">Plan Groups</a>
+	    <a href="/view/plan-groups.html">Follow up</a>
+	    <a href="/static-form/evaluation-configuration.xml"> Configuration</a>
+  </div>
+  <div class="footer-group">
+	<p><b>Salvora showcase application.</b></p>
+	<p>This sample application is a showcase of Salvora. Salvora is an small tool for managing xforms, documents and transformations directly from the local system. You can learn more about Salvora at https:/github.com/vionta/salvora</p>
+  </div>
+  <div class="footer-group">
+    <p><b>Acknowledgements</b></p>
+    <p>Salvora is based on several key components including: </p>
+    <ul>
+      <li>Xslt Forms</li>
+      <li>Saxon</li>
+      <li>Morgana XProc</li>
+      <li>Quarkus</li>
+      <li>Vert.x</li>
+    </ul>
+  </div>
+  <div class="footer-group">
+    <p><b>Contact</b></p>
+    <p>Salvora is provided by Vionta.net.</p>
+  </div>
+</footer></body>
+</html>

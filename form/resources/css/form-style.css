@@ -1,0 +1,56 @@
+
+
+/* Main sections position */
+
+
+@import "xforms/stratml-form-main-position.css";
+
+@import "xforms/form-elements-position.css";
+
+@import "xforms/stratml-elements-position.css";
+
+@import "base.css";
+
+@import "header-footer.css";
+
+body {
+    font-family:"Segoe UI", Helvetica, Arial;
+}
+
+field {
+    margin-right:var(--simple-margin);
+}
+
+
+/* Button background */
+button.positive-button, .positive-button button   {
+    background-color:var(--background-possitive);
+}
+
+button.cancel-button, .cancel-button button  {
+    background-color:transparent;
+}
+
+button.negative-button, .negative-button button  {
+    background-color:var(--background-positive);
+}
+
+div.form-action-button-set button.negative-button, div.form-action-button-set .negative-button button {
+    background-color:red;
+    color:white;
+}
+
+div.form-action-button-set button.positive-button, div.form-action-button-set .posi-button button {
+    background-color:blue;
+    color:white;
+}
+
+div.main-content {
+    margin-bottom: var(--double-margin);
+}
+
+main.centered-form {
+    width:40em ;
+    margin: auto; 
+}
+

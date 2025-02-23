@@ -1,0 +1,13 @@
+<data xmlns="" >
+  <actions>
+    <option>
+      <value>Recepción</value><label>Recepción</label>
+    </option>
+    <option>
+      <value>Asignación</value><label>Asignacion</label>
+    </option>
+    <option>
+      <value>Entrega</value><label>Entrega</label>
+    </option>    
+  </actions>
+</data>

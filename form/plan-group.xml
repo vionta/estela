@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/resources/xsltforms/xsltforms.xsl" type="text/xsl"?><?xsltforms-options debug="no"?><?css-conversion no ?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xf="http://www.w3.org/2002/xforms">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <title>Plan Groups</title>
+
+    <link rel="stylesheet" type="text/css" href="/resources/css/form-style.css"/>
+    <xf:model id="m">
+      <xsd:schema targetNamespace="http://vionta.net/schemas/salvora/1.0" xmlns:sal="http://vionta.net/schemas/salvora/1.0">
+	<xsd:simpleType name="Code">
+	  <xsd:restriction base="xsd:string">
+	    <xsd:pattern value="[0-9a-zA-Z\-]*"/>
+	  </xsd:restriction>
+	</xsd:simpleType>      
+      </xsd:schema>
+
+      <xf:instance id="entity" resource="/TEMPLATE_LOCATION/ENTITY/INSTANCE_CODE.xml"/>
+      <xf:instance id="options" resource="/conf/options.xml"/>
+      <xf:instance id="template" resource="/conf/template/plan-group/template.xml"/>
+      <xf:instance id="plan-options" resource="/conf/index/PerformancePlanOrReport.xml"/>
+      
+      <xf:instance id="configuration">
+	<data xmlns="">
+	  <location>/collections/plan-group/</location>
+	  <url>INSTANCE_CODE-initial.xml</url>
+	</data>
+      </xf:instance>
+
+
+      <xf:bind nodeset="/*/code" type="sal:Code" required="true()"/>
+      <xf:bind nodeset="instance('configuration')/url" type="xsd:string" calculate="concat(instance('configuration')/location, instance('entity')/code, '.xml')" readonly="false()"/>
+
+      <xf:submission id="save" method="put" replace="none" instance="entity">
+	<xf:resource value="instance('configuration')/url"/>
+	<xf:message ev:event="xforms-submit-error" ev:default="cancel">A submission error
+	(<xf:output value="event('error-type')"/>) occurred.</xf:message>
+      </xf:submission>
+      <xf:submission id="list" reload="page" method="get" action="/index/plan-group.html">
+      </xf:submission>
+      
+    </xf:model>
+  </head>
+  <body><div class="header-content" xmlns="">
+  <link rel="stylesheet" type="text/css" href="/resources/css/follow-up.css"/>
+
+  <div id="header-links" class="navigation-links">
+    
+    <a href="/home.html">
+      <img src="/resources/img/estela/estela-white-top-icon-home.png" class="top-white-icon"/>
+    Home</a>
+<!--
+	    <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>-->
+<a href="/index/PerformancePlanOrReport.html">
+  <img src="/resources/img/estela/estela-white-top-icon-plans.png" class="top-white-icon"/>
+    
+Plans </a>
+	    <!--
+	    <a href="/index/plan-group.html">Plan Groups</a>
+	    -->
+	    <a href="/view/plan-groups.html">
+	      <img src="/resources/img/estela/estela-white-top-icon-follow-up.png" class="top-white-icon"/>
+	    Follow up</a>
+	    <a href="/static-form/evaluation-configuration.xml">
+	      <img src="/resources/img/estela/estela-white-top-icon-configuration.png" class="top-white-icon"/>
+	    Configuration</a>
+  </div>
+  
+  <header>
+  <h1><img src="/resources/img/estela/estela-title-icon.png" id="title-icon"/>Estela
+  <img src="/resources/img/estela/estela-title-legend.png" id="title-icon" alt="The StratML Toolkit"/></h1>
+  </header>
+
+
+
+</div>
+
+      <!-- ................... Edition Tab .......................     -->
+      <div class="main-content">
+	<h3>Plan Group</h3>
+	
+	<div class="form-line">
+	  <xf:input ref="instance('entity')/code">
+	    <xf:label>Code</xf:label>
+	  </xf:input>
+
+	  <xf:input ref="instance('entity')/name">
+	    <xf:label>Name</xf:label>
+	  </xf:input>
+	</div>
+
+
+	<div class="form-line">
+	  <xf:textarea ref="description">
+	    <xf:label>Description</xf:label>
+	  </xf:textarea>
+	  <xf:textarea ref="remarks">
+	    <xf:label>Plan Group Remarks</xf:label>
+	  </xf:textarea>
+	</div>
+
+	<div>
+	<xf:repeat ref="instance('entity')/plans/plan">
+	  <list-element>
+	    <div>
+	      <element-controls>
+
+		<xf:trigger ref=".[preceding-sibling::*:plan]" class="iconbutton" title="Move Plan Up">
+		  <xf:label>
+		      <img src="/resources/img/up.svg" alt="move element up"/>
+		  </xf:label>
+		  <xf:action ev:event="DOMActivate">
+		    <xf:insert origin="context()" ref="preceding-sibling::*:plan[1]" position="before"/>
+		    <xf:delete ref="."/>
+		  </xf:action>
+		</xf:trigger>
+
+		<xf:trigger ref=".[following-sibling::*:plan]" class="iconbutton" title="Move Plan down">
+		  <xf:label>
+		  <img src="/resources/img/down.svg"/>
+		  </xf:label>
+		  <xf:action ev:event="DOMActivate">
+		    <xf:insert origin="context()" ref="following-sibling::*:plan[1]"/>
+		    <xf:delete ref="."/>
+		  </xf:action>
+		</xf:trigger>
+		
+		<xf:trigger class="linebutton iconbutton" title="Delete Plan">
+		  <xf:label>
+		  <img src="/resources/img/cross.svg" alt="delete element"/>
+		  </xf:label>
+		  <xf:delete ref="." ev:event="DOMActivate"/>
+		  </xf:trigger>
+
+	      </element-controls>
+	      <element-title>
+		<img src="/resources/img/plan-blue-icon.svg" class="type-icon"/> 
+		Plan <xf:output ref="*:name" class="nopaddingtext"/>
+	      </element-title>
+	      
+	      <element-content>
+
+		<line>
+		  <field>
+		    <field-control>
+		      <xf:select1 ref="code">
+			<xf:label>Plan</xf:label>
+			<xf:itemset ref="instance('plan-options')/PerformancePlanOrReport">
+			  <xf:label ref="Name/text()"/>
+			  <xf:value ref="code/text()"/>
+			</xf:itemset>
+		      </xf:select1>
+
+		      
+		    </field-control>
+
+		  </field>
+
+		</line>
+
+		
+		
+		</element-content>
+
+	    </div>
+	  </list-element>
+	  
+	</xf:repeat>
+</div>
+
+	<xf:trigger class="linebutton iconbutton" title="Add Plan">
+	  <xf:label>
+	    <img src="/resources/img/add-blue-icon.svg" class="in-button-icon"/>
+	    Add Plan
+	    <img src="/resources/img/plan-blue-icon.svg" class="in-button-icon"/>
+	  
+	  </xf:label>
+	  <xf:action ev:event="DOMActivate">
+	    <xf:insert origin="instance('template')/plans/plan" context="instance('entity')/plans" ref="plan" at="last()" position="after"/>
+	  </xf:action>
+	</xf:trigger>
+      </div>
+
+      <div>
+	<div class="form-action-button-set">
+	  <xf:trigger class="cancel-button">
+	    <xf:label>Cancel</xf:label>
+	    <xf:action ev:event="DOMActivate">
+	      <xf:send submission="list"/>
+	    </xf:action>
+	  </xf:trigger>
+	  
+	  <xf:trigger class="positive-button">
+	    <xf:label>Save</xf:label>
+	    <xf:action ev:event="DOMActivate">
+	      <xf:message level="ephemeral">Saving document ...</xf:message>
+	      <xf:send submission="save"/>
+	      <xf:send submission="list"/>
+	    </xf:action>
+	  </xf:trigger>
+	</div>	  
+	
+      </div>
+
+
+      <!-- ................... Review Tab .................. -->
+
+
+
+
+  <footer xmlns="">
+
+  <div id="footer-links" class="navigation-links footer-group">
+	    <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>
+	    <a href="/index/PerformancePlanOrReport.html"> Manage Plans </a>
+	    <a href="/index/plan-group.html">Plan Groups</a>
+	    <a href="/view/plan-groups.html">Follow up</a>
+	    <a href="/static-form/evaluation-configuration.xml"> Configuration</a>
+  </div>
+  <div class="footer-group">
+	<p><b>Salvora showcase application.</b></p>
+	<p>This sample application is a showcase of Salvora. Salvora is an small tool for managing xforms, documents and transformations directly from the local system. You can learn more about Salvora at https:/github.com/vionta/salvora</p>
+  </div>
+  <div class="footer-group">
+    <p><b>Acknowledgements</b></p>
+    <p>Salvora is based on several key components including: </p>
+    <ul>
+      <li>Xslt Forms</li>
+      <li>Saxon</li>
+      <li>Morgana XProc</li>
+      <li>Quarkus</li>
+      <li>Vert.x</li>
+    </ul>
+  </div>
+  <div class="footer-group">
+    <p><b>Contact</b></p>
+    <p>Salvora is provided by Vionta.net.</p>
+  </div>
+</footer></body>
+</html>

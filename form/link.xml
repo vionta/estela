@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/resources/xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<?css-conversion no ?>
+<html
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms"
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <title>Link List Form</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+    <xf:model id="m">
+      <xf:instance id="entity" resource="/TEMPLATE_LOCATION/ENTITY/INSTANCE_CODE.xml" />
+      <xf:instance id="options" resource="/conf/options.xml" />
+      <xf:instance id="template" resource="/TEMPLATE_LOCATION/ENTITY/INSTANCE_CODE.xml" />
+      <xf:instance id="configuration">
+	<data xmlns="" >
+	  <location>/collections/link/</location>
+	  <url>INSTANCE_CODE.xml</url>
+	</data>
+      </xf:instance>
+      <xf:bind ref="//date" type="xf:date" />
+      <xf:bind ref="instance('entity')/deadline-date" type="xf:date" required="false" />
+      <xf:bind ref="instance('entity')/expected-date" type="xf:date" required="false" />
+      
+      <xf:bind nodeset="instance('configuration')/url" type="xsd:string" calculate="concat(instance('configuration')/location, instance('entity')/code, '.xml')"
+	       readonly="false()" />
+
+      <xf:submission
+	  id="load" method="get" replace="instance"
+	  instance="entity" validate="false" >
+	<xf:resource
+	    value="instance('configuration')/url" />
+	/>
+	<xf:message ev:event="xforms-submit-error" ev:default="cancel" >A submission error
+	(<xf:output value="event('error-type')"/>) occurred.</xf:message>
+      </xf:submission>
+      <xf:submission
+	  id="save" method="put" replace="none" instance="entity" >
+	<xf:resource
+	    value="instance('configuration')/url" />
+	
+	<xf:message ev:event="xforms-submit-error" ev:default="cancel">A submission error
+	(<xf:output value="event('error-type')"/>) occurred.</xf:message>
+      </xf:submission>
+
+      <xf:submission id="list" reload="page" method="get"
+		     action="/index/link.html">
+      </xf:submission>
+      
+    </xf:model>
+  </head>
+  <body>
+    <header>
+      <h1>Link</h1>
+      <breadcrumb><a href="/index/link.html" >[links]</a></breadcrumb>
+
+    </header>
+    <main>
+      <!--
+	  <div id="tabmenu">
+	  <xf:trigger id="editionbutton" appearance="minimal" >
+	  <xf:label>Edit</xf:label>
+	  <xf:toggle case="editiontab" ev:event="DOMActivate" />
+	  </xf:trigger>
+	  <xf:trigger id="configurationbutton" appearance="minimal" >
+	  <xf:label>Configuration</xf:label>
+	  <xf:toggle case="configurationtab" ev:event="DOMActivate" />
+	  </xf:trigger>
+	  </div>
+      -->
+      
+      <!-- ................... Edition Tab .......................     -->
+      <xf:switch >
+	<xf:case id="editiontab" selected="true" >
+	  <div class="section" >
+
+	    <div class="form-line">
+	      <xf:input ref="instance('entity')/code" >
+		<xf:label>Code</xf:label>
+	      </xf:input>
+
+	      <xf:input ref="instance('entity')/name" >
+		<xf:label>Name</xf:label>
+	      </xf:input>
+
+	      <xf:input ref="instance('entity')/url" >
+		<xf:label>URL</xf:label>
+	      </xf:input>
+	    </div>
+
+	    <div class="form-line" >
+	      <xf:textarea ref="description" >
+		<xf:label>Description</xf:label>
+	      </xf:textarea>
+	    </div>
+
+
+	  </div>
+
+
+
+
+
+
+	  <div>
+
+	    <div class="form-action-button-set" >
+
+	      <xf:trigger>
+		<xf:label>Cancel</xf:label>
+		<xf:action ev:event="DOMActivate" >
+		  <xf:send submission="list" />
+		</xf:action>
+	      </xf:trigger>
+	      
+	      <xf:trigger>
+		<xf:label>Save</xf:label>
+		<xf:action ev:event="DOMActivate" >
+		  <xf:message level="ephemeral">Saving document ...</xf:message>
+		  <xf:send submission="save" />
+		  <xf:send submission="list" />
+		</xf:action>
+	      </xf:trigger>
+	    </div>	  
+	    
+	  </div>
+	</xf:case>
+
+	<!-- ................... Review Tab .................. -->
+
+	<xf:case id="configurationtab" >
+
+	  <h2>Configuration</h2>
+	  <p>Document path configuration. You can adjust the
+	  path of the documnet, reload, save again in a
+	  different location, etc.
+	  </p>
+	  <div class="form-line" >
+
+	    <xf:input ref="instance('configuration')/location" />
+	    <xf:input ref="instance('configuration')/url" />
+	  </div>
+	  <div class="form-line" >
+	    <br/>
+	    <xf:trigger >
+	      <xf:label>Load</xf:label>
+	      <xf:action ev:event="DOMActivate" >
+		<xf:send submission="load" />
+		<xf:message level="ephemeral">Loaded document ...</xf:message>
+	      </xf:action>
+	    </xf:trigger>
+	    <xf:trigger>
+	      <xf:label>Save 1</xf:label>
+	      <!--
+		  <xf:action ev:event="DOMActivate" >
+		  <xf:message level="ephemeral">Saving document ...</xf:message>
+		  <xf:send submission="save" />
+		  </xf:action>
+	      -->
+	      <xf:action ev:event="DOMActivate" >
+		<xf:send submission="list" />
+	      </xf:action>
+	    </xf:trigger>
+	  </div>
+
+	</xf:case>
+
+      </xf:switch>
+    </main>
+    <footer>
+      <div>
+	<p><b>Salvora showcase application.</b></p>
+	<p>This sample application is a showcase of Salvora. Salvora is an small tool for managing xforms, documents and transformations directly from the local system. You can learn more about Salvora at https:/github.com/vionta/salvora</p>
+      </div>
+      <div>
+	<p><b>Acknowledgements</b></p>
+	<p>Salvora is based on several key components including: </p>
+	<ul>
+	  <li>Xslt Forms</li>
+	  <li>Saxon</li>
+	  <li>Morgana XProc</li>
+	  <li>Quarkus</li>
+	  <li>Vert.x</li>
+	</ul>
+      </div>
+      <div>
+	<p><b>Contact</b></p>
+	<p>Salvora is provided by Vionta.net.</p>
+      </div>
+    </footer>
+  </body>
+</html>

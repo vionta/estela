@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PerformancePlanOrReport
+    xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" 
+    >
+
+  <NameDescription>
+  </NameDescription>
+
+    <Goal>
+      <Objective>
+        <PerformanceIndicator Keyness="" PerformanceIndicatorType="" ValueChainStage=""
+			      weight="1" preferred-visualization="bar"   >
+	  
+	  <MeasurementInstance>
+            <ActualResult>
+              <NumberOfUnits>48</NumberOfUnits>
+            </ActualResult>
+            <TargetResult Weighting="">
+              <NumberOfUnits>50</NumberOfUnits>
+              <Description>Reference result</Description>
+            </TargetResult>
+          </MeasurementInstance>
+          <MeasurementDimension>Percentage</MeasurementDimension>
+          <UnitOfMeasurement>One hundred based</UnitOfMeasurement>
+        </PerformanceIndicator>
+        <NameDescription>
+          <Name> Social Justice &amp; equity</Name>
+        </NameDescription>
+      </Objective>
+    </Goal>
+
+</PerformancePlanOrReport>

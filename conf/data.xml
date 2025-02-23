@@ -1,0 +1,200 @@
+<data>
+<link>
+<sourcePage>Intro</sourcePage>
+<target>0_mainform</target>
+<elementId>newperformanceplan</elementId>
+<primary>true</primary>
+<description/>
+</link>
+<link>
+<sourcePage>Intro</sourcePage>
+<target>0_mainform</target>
+<elementId>newstratplan</elementId>
+<primary>true</primary>
+<description/>
+</link>
+<link>
+<sourcePage>3_organizaton</sourcePage>
+<target>5_performance</target>
+<elementId>next</elementId>
+<primary>true</primary>
+</link>
+<link>
+<sourcePage>2_submission</sourcePage>
+<target>3_organizaton</target>
+<elementId>next</elementId>
+<primary>true</primary>
+</link>
+<link>
+<sourcePage>1_information</sourcePage>
+<target>2_submission</target>
+<elementId>next</elementId>
+<primary>true</primary>
+</link>
+<link>
+<sourcePage>0_mainform</sourcePage>
+<target>1_information</target>
+<elementId>g229</elementId>
+<primary>true</primary>
+</link>
+<link>
+<sourcePage>0_mainform</sourcePage>
+<target>languages</target>
+<elementId>Language Change</elementId>
+<primary>true</primary>
+</link>
+<page>
+<key>0_mainform</key>
+<name>Main Form</name>
+<description>
+The welcome screen describes shortly the steps involved in the plan creation. The steps are going to differ between strategic and performance planning (This step in development). There´s also a page designed for managing uploads and storing URL configuration.
+</description>
+<primary>true</primary>
+<group>FORM</group>
+</page>
+<page>
+<key>1_information</key>
+<name>Plan Information</name>
+<description>
+The first step of the form handles the plan main information and plan dates.
+</description>
+<primary>true</primary>
+<group>FORM</group>
+</page>
+<page>
+<key>2_submission</key>
+<name>Submission information</name>
+<description>
+The submission information groups the information about the date and contact information of the plan information. There´s also an step designed to handle other details information.
+</description>
+<primary>true</primary>
+<group>FORM</group>
+</page>
+<page>
+<key>3_organization</key>
+<name>Organization page</name>
+<description>
+The organization page groups the information about values, mission, vision and other high level information about the plan issuer. It is important to point out some differences that can be even more subtle on non English languages. - Values: Values describe remarkable principles or practices that the organization performs or define as desirable. They are inputs or outputs directly involved in the analysis of the process but management consider them as an achievement or desirable higher level output of the process. - Mission: This is the main and definitive outcome expected from the organization activity. As an opposition to Goals and Objectives this element is related to the main organization, while Goals and Objectives are usually related to the plan. - Vision: This is a concept that describes how the organization interprets the organization activity in the actual context. It's a more descriptive than prescriptive concept.
+</description>
+<primary>true</primary>
+<group>FORM</group>
+</page>
+<page>
+<key>4_goals</key>
+<name>Goals</name>
+<description>
+The goals page manages plan specific goals information and the defined derived objectives. It is important to remark the differences and relations between these two concepts. Goals are a more broader term and they are the main expected outcomes from the plan. They are not expected to be specified in detail. The goals are the expected results of the plan activity. On the other side, objectives precise the specific scope of the goals. They are defined to measure and declare the actual expectations in the achievement of the goals. Objectives are usually linked to a time frame, usually between three months and a year, while goals might span for several periods. Also, there might be different objectives related to different levels of achievement for a single goal in the same period. All these differences might be even more subtle in different languages.
+</description>
+<primary>true</primary>
+<group>FORM</group>
+</page>
+<page>
+<key>5_performance</key>
+<name>Performance</name>
+<description>
+The performance page manages the specific measure instances defined and the results achieved.
+</description>
+<primary>true</primary>
+<group>FORM</group>
+</page>
+<page>
+<key>languages</key>
+<name>Languages Management</name>
+<description>
+The form can dynamically change the language used. If you are interested in adding support for another language please consider contributing to the StratML project.
+</description>
+<primary>false</primary>
+<primaryPage>0_mainform</primaryPage>
+<group>FORM</group>
+</page>
+<page>
+<key>Intro</key>
+<name>Introduction</name>
+<description>
+The introduction steps shows the available main options. - Create Strategic plan. - Create a performance plan. - Load or save an existing plan. - Form configuration. URLs, etc.
+</description>
+<primary>true</primary>
+<group>FORM</group>
+</page>
+<page>
+<key>Configuration</key>
+<name>Plan configuration</name>
+<description>
+The form can dynamically manage the base repo location and plan name. Using the configuration parameters, the form cam be used to copy plans, load them and store them in a different location.
+</description>
+<primary>true</primary>
+<group>CONF</group>
+</page>
+<page>
+<key>LoadPLan</key>
+<name>Load Plan</name>
+<description>
+The Load Plan dialog is designed for unexperienced users. Load a plan from a local directory or a remote server. The base path is taken from the configuration dialog but can be modified.
+</description>
+<primary>true</primary>
+<group>CONF</group>
+</page>
+<menu>
+<key>Storage</key>
+<name>Load And Store</name>
+<target>LoadPLan</target>
+<primary>true</primary>
+<description/>
+</menu>
+<menu>
+<key>StratPlan</key>
+<name>Strategic Plan</name>
+<target>0_mainform</target>
+<primary>true</primary>
+<description/>
+</menu>
+<menu>
+<key>Perform</key>
+<name>Performance Plan</name>
+<target>0_mainform</target>
+<primary>true</primary>
+<description/>
+</menu>
+<menu>
+<key>Configuration</key>
+<name>Configuration</name>
+<target>Configuration</target>
+<primary>true</primary>
+<description/>
+</menu>
+<group>
+<key>FORM</key>
+<name>StratML Form</name>
+<primary>true</primary>
+<description>
+This point describes the main Strategic Markup Language Form
+</description>
+</group>
+<group>
+<key>CONF</key>
+<name>Configuration</name>
+<primary>true</primary>
+<description>
+StratML form are intended for integration in other systems. The form is strongly based on XForms declarative technology. XForms is a w3c standard that can be easily integrated on other systems. Other technologies include W3C and ECMA standards like xhtml, CSS, Javascript and SVG. The form should be configurable in two different ways. Operation and user specific configuration and also other systems integration.
+</description>
+</group>
+<group>
+<key>STRATFORM</key>
+<name>Strategic Plan Form</name>
+<parent>FORM</parent>
+<primary>false</primary>
+<description>
+The main StratML form version. Use this version to define an strategic plan.
+</description>
+</group>
+<group>
+<key>PERFORM</key>
+<name>Performance Plan Form</name>
+<parent>FORM</parent>
+<primary>false</primary>
+<description>
+The alternate StratML form, intended to be used to define performance plans and review the plan outcomes.
+</description>
+</group>
+ <!--   <page>    <name>aaa</name>      </page>     -->
+</data>

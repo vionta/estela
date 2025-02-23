@@ -1,0 +1,38 @@
+
+body {
+    max-width:100% ;
+}
+
+/* ....... Section ......... */
+
+div.main {
+    width:100% ;
+    margin:0;
+    border:0;
+}
+  
+.section {
+    width:100%;
+    padding-top:var(--triple-margin);
+    padding-bottom:var(--cuadruple-margin);
+}
+
+div.internal-space {
+    margin-left:10%;
+    max-width:300em;
+}
+
+table.StrategyFramework {
+    max-width:90%;
+}
+
+table.StrategyFramework td {
+    vertical-align:top;
+}
+
+.StrategyFramework textarea {
+    min-width:20em;
+    width:90%;
+
+}
+

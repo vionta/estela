@@ -1,0 +1,105 @@
+
+
+@import "base.css";
+
+@import "xforms/stratml-form-main-position.css";
+@import "list/table/summary-table.css" ;
+@import "list/entity-list.css" ;
+@import "header-footer.css" ;
+
+body {
+    max-witdh:80em;
+}
+
+table.summary td.remarks {
+    font-weight:100;
+    font-size: 98%;
+}
+
+img.hint-icon-result {
+    margin-right: var(--simple-margin);
+}
+
+th , td {
+    border: 1px solid white ;
+}
+
+th, td {
+    background-color:  #f6f6f6;
+}
+
+th {
+    border-bottom: 4px solid #2054a2 ;    
+}
+
+td.plan-group-title-td {
+    background-color: #eceef0ff; 
+    text-align: right;
+    vertical-align: top;
+    padding-right:var(--double-margin);
+    padding-top:var(--double-margin);
+}
+
+td.plan-list {
+    text-align: left;
+    vertical-align: top;
+    padding-left:var(--double-margin);
+    padding-top:var(--double-margin);
+}
+
+table.entity-list td {
+    padding:var(--double-margin);
+    color:#000000;
+    font-size:110%;
+}
+
+th a, td a {
+    color:#000000;
+}
+
+
+/* .... Plans tablee[I*/
+div.plan-block {
+    display:block;
+
+    margin:0;
+    padding:0;
+}
+
+a.plan-label {
+    float:left;
+    clear:left;
+}
+
+div.plan-controls {
+    float:right;
+    clear:right;
+    display:inline-block;
+}
+
+div.plan-controls * {
+    margin-right:--var(double-margin);
+}
+
+div.plan-dia-top {
+    display:inline;
+    vertical-align:bottom; 
+}
+
+div.plan-dia-top * {
+    vertical-align:bottom; 
+}
+
+div.diagram-line {
+    display:inline;
+}
+
+div.diagram-line-small-diagrams {
+    margin-top:40px;
+    float:left;
+}
+
+
+
+
+

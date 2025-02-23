@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups><plan-group><stats><PerformancePlanOrReport DocumentType="Performance_Report" Language="es">
+   <rsu:stats success="false" total="1" successes="0" failures="0" blanks="1" xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <Name>Your First Plan</Name>
+   <code>your-first-plan</code>
+   <Goal Priority="To_Be_Determined">
+      <rsu:stats success="" indicators="0" xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+      <Name>Your First Goal</Name>
+   </Goal>
+</PerformancePlanOrReport></stats>
+  <code>first-plan-group</code>
+  <name>Your First Plan Group</name>
+  <description/>
+  <remarks/>
+  <plans>
+    <plan>
+      <code>your-first-plan</code>
+      <name/>
+   </plan>
+  </plans>
+</plan-group></groups>

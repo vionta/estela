@@ -1,0 +1,12 @@
+
+table.summary {
+    margin : auto;
+    width : 85%;
+}
+
+table.summary td {
+    padding-top: var(--simple-margin);
+    padding-bottom: var(--simple-margin);
+    font-weight:600;
+    font-size:110%
+}

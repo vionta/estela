@@ -1,0 +1,24 @@
+
+@import "base.css" ;
+
+body {
+    font-family:"Segoe UI", Helvetica, Arial;
+    margin-top:0;
+}
+
+a {
+  text-decoration:none
+}
+
+div.main-content , main {
+    max-width:var(--main-width) ;
+    margin:auto;
+
+}
+
+
+div.inline * , div.inline p, div.inline a, div.inline h1, div.inline h2, div.inline h3, div.inline h4 {
+    display:inline ; text-align: left;
+    margin-right: var(--simple-margin);
+}
+

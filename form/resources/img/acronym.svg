@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20"
+   height="20"
+   viewBox="0 0 5.2916665 5.2916665"
+   version="1.1"
+   id="svg8139"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="acronymz2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview8141"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="53.719471"
+     inkscape:cx="3.527585"
+     inkscape:cy="9.456534"
+     inkscape:window-width="3440"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs8136">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient8760">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop8756" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop8758" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8760"
+       id="linearGradient8762"
+       x1="2.5898168"
+       y1="0.045961078"
+       x2="6.9833469"
+       y2="0.045961078"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g10444"
+       transform="matrix(0.50282578,0,0,0.50282578,-0.00631206,0.03033052)"
+       style="stroke-width:0.52619286;stroke-dasharray:none;stroke:none;stroke-opacity:1;fill:#000000;fill-opacity:1">
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:4.88482px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic Bold';fill:#103265;fill-opacity:1;stroke:none;stroke-width:0.40478;stroke-dasharray:none;stroke-opacity:1"
+         x="1.128132"
+         y="4.5169568"
+         id="text8368"><tspan
+           sodipodi:role="line"
+           id="tspan8366"
+           style="fill:#103265;fill-opacity:1;stroke:none;stroke-width:0.40478;stroke-dasharray:none;stroke-opacity:1"
+           x="1.128132"
+           y="4.5169568">A</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:4.95499px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic Bold';fill:#103265;fill-opacity:1;stroke:none;stroke-width:0.410596;stroke-dasharray:none;stroke-opacity:1"
+         x="5.5236349"
+         y="4.5421596"
+         id="text8766"><tspan
+           sodipodi:role="line"
+           id="tspan8764"
+           style="fill:#103265;fill-opacity:1;stroke:none;stroke-width:0.410596;stroke-dasharray:none;stroke-opacity:1"
+           x="5.5236349"
+           y="4.5421596">C</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:4.88482px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic Bold';fill:#103265;fill-opacity:1;stroke:none;stroke-width:0.40478;stroke-dasharray:none;stroke-opacity:1"
+         x="1.3642633"
+         y="9.3351774"
+         id="text8770"><tspan
+           sodipodi:role="line"
+           id="tspan8768"
+           style="fill:#103265;fill-opacity:1;stroke:none;stroke-width:0.40478;stroke-dasharray:none;stroke-opacity:1"
+           x="1.3642633"
+           y="9.3351774">R</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:4.95499px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic Bold';fill:#103265;fill-opacity:1;stroke:none;stroke-width:0.410596;stroke-dasharray:none;stroke-opacity:1"
+         x="5.396615"
+         y="9.3603802"
+         id="text8774"><tspan
+           sodipodi:role="line"
+           id="tspan8772"
+           style="fill:#103265;fill-opacity:1;stroke:none;stroke-width:0.410596;stroke-dasharray:none;stroke-opacity:1"
+           x="5.396615"
+           y="9.3603802">O</tspan></text>
+    </g>
+  </g>
+</svg>

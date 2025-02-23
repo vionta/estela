@@ -1,0 +1,91 @@
+
+
+
+@import "xforms/stratml-form-main-position.css";
+@import "list/table/summary-table.css" ;
+@import "list/entity-list.css" ;
+@import "header-footer.css" ;
+@import "follow-up.css" ;
+
+
+main {
+    width:45em;
+    margin:auto;
+}
+
+main * {
+    
+    margin:auto;
+}
+
+div.vertical-block {
+    display: flex;
+    flex-direction:column;
+}
+
+div.vertical-block * {
+    text-align:left;
+}
+
+div.vertical-block * {
+    text-align:center;
+    vertical-align:middle;
+    margin:auto;
+}
+
+div.title-line {
+    width:var(--main-width);
+    text-align:left;
+}
+
+div.title-line * {
+    margin-right:var(--mini-margin);
+}
+
+
+div.title-line > *  {
+    display:inline;
+    text-align:left;
+}
+
+div.diagram-line {
+    display:flex;
+    flex-direction:row ;
+}
+
+div.diagram-line * {
+    vertical-align:bottom;
+}
+
+table.evaluation-view {
+    margin:auto;
+    font-weight:500;
+    font-size:110%;
+}
+
+table.evaluation-view > tbody > tr > td {
+    padding:var(--double-margin);
+}
+
+td {
+    border:0;
+}
+
+table.objective {
+    width:100% ;
+}
+
+td.objective-name * , table.objective {
+    text-align:left;
+    margin-left:var(--double-margin);
+
+}
+
+td.left  {
+    text-align:left;
+    vertical-align:top;
+    margin-left:var(--double-margin);
+    margin-top:var(--simple-margin);    
+}
+
+

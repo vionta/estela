@@ -1,0 +1,62 @@
+
+
+
+@import "base.css" ;
+
+@import "xforms/stratml-form-main-position.css";
+
+@import "list/entity-list.css" ;
+
+
+@import "header-footer.css" ;
+
+div.tableset, div.tableset > table {
+    margin:auto; 
+}
+
+table.entity-list th,table.entity-list  td {
+    background-color:  #f6f6f6;
+}
+
+table.entity-list  th {
+    border-bottom: 4px solid #2054a2 ;    
+}
+
+table.entity-list  td {
+    font-weight:600;
+    font-size: 98%;
+    color:#103265;
+}
+
+table.entity-list  td a, table.entity-list  td a:visited {
+     color:#103265;
+}
+
+/* ......... end buttons ........... */
+
+div.final-button-set {
+    width:40%;
+    margin-left:55%;
+    padding-top:3em;
+    margin-bottom:3em;
+
+}
+
+div.final-button-set a {
+    border: 2px solid #172e49;
+    padding:var(--double-margin);
+    color: #172e49;
+    font-weight:600;
+    background-color: transparent;
+    border-radius: 8px;
+    margin-right:var(--triple-margin);
+}
+
+
+
+
+
+
+
+
+

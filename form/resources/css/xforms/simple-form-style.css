@@ -1,0 +1,21 @@
+
+ button {
+
+     border-radius: 4px;
+     font-weight:600;
+     margin-right:var(--triple-margin); 
+     /*
+     background-color:#e5ebf5;
+     border: 1px solid #cdd9ea;
+    */
+     border:0;
+    border-bottom : 1px solid #b1c1d7 ; 
+    border-radius: 3px;
+    background-color:#fafaff;    
+    padding:var(--simple-margin); 
+
+}
+
+ field {
+     margin-right:var(--double-margin); 
+ }     

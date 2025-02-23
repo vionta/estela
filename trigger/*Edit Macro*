@@ -1,0 +1,22 @@
+;; Keyboard Macro Editor.  Press C-c C-c to finish; press C-x k RET to cancel.
+;; Original keys: C-x o C-x b xf TAB RET ESC & ant SPC 4*DEL ant SPC prepare RET C-x o
+
+Command: last-kbd-macro
+Key: none
+
+Macro:
+
+C-x o			;; other-window
+C-x b			;; switch-to-buffer
+xf			;; self-insert-command * 2
+TAB			;; indent-for-tab-command
+RET			;; newline
+ESC &			;; async-shell-command
+ant			;; self-insert-command * 3
+SPC			;; self-insert-command
+4*DEL			;; delete-backward-char
+ant			;; self-insert-command * 3
+SPC			;; self-insert-command
+test			;; self-insert-command * 3
+RET			;; newline
+C-x o			;; other-window

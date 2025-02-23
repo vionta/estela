@@ -1,0 +1,30 @@
+
+
+/*  Main Elements */
+
+header * {
+    display: inline;
+    margin-right:var( --element-margin);
+}
+
+/* Footer */
+
+footer {
+
+}
+
+footer > div {
+    float : left ;
+    margin-right:var( --element-margin);
+    width:30%;
+    margin-left:0;
+    padding:0;
+
+}
+
+
+/* ............... Especific Elements ................ */
+
+div.form-line {
+    margin-bottom: var(--element-vertical-margin);
+}

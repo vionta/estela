@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="../xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<?css-conversion no ?>
+<html
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms"
+    xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/plain; charset=us-ascii" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <title>Issue List Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <xf:model id="m">
+      <xf:instance id="entity" resource="/conf/template/issue.xml" />
+      <xf:instance id="options" resource="/conf/options.xml" />
+      <xf:instance id="template" resource="/conf/template/issue.xml" />
+      <xf:instance id="configuration">
+	<data xmlns="" >
+	  <location>/issues/</location>
+	  <url>new-issue.xml</url>
+	</data>
+      </xf:instance>
+      <xf:bind ref="//date" type="xf:date" />
+
+      <!--xf:bind ref="instance('entity')/code"  constraint="matches(., '^[0-9a-zA-Z]*$')"  /-->
+      
+      <xf:bind ref="instance('entity')/code"  whitespace="remove" constraint="not(contains(., ' ' ))"  />
+            
+      <xf:bind ref="instance('entity')/deadline-date" type="xf:date" required="false" />
+      <xf:bind ref="instance('entity')/expected-date" type="xf:date" required="false" />
+      
+      <xf:bind nodeset="instance('configuration')/url" type="xsd:string" calculate="concat(instance('configuration')/location, instance('entity')/code, '.xml')"
+	       readonly="false()" />
+
+      <xf:submission
+	  id="load" method="get" replace="instance"
+	  instance="entity" validate="false" >
+	<xf:resource
+	    value="instance('configuration')/url" />
+	/>
+	<xf:message ev:event="xforms-submit-error" ev:default="cancel" >A submission error
+	                   (<xf:output value="event('error-type')"/>) occurred.</xf:message>
+      </xf:submission>
+      <xf:submission
+	  id="save" method="put" replace="none" instance="entity" >
+	<xf:resource
+	    value="instance('configuration')/url" />
+	
+	<xf:message ev:event="xforms-submit-error" ev:default="cancel">A submission error
+	                   (<xf:output value="event('error-type')"/>) occurred.</xf:message>
+      </xf:submission>
+    </xf:model>
+  </head>
+  <body>
+    <header>
+    <h1>Issue</h1> <a href="../index/issues.html" >[issues]</a></header>
+    <div id="tabmenu">
+      <xf:trigger id="editionbutton" appearance="minimal" >
+	<xf:label>Edit</xf:label>
+	<xf:toggle case="editiontab" ev:event="DOMActivate" />
+      </xf:trigger>
+      <xf:trigger id="configurationbutton" appearance="minimal" >
+	<xf:label>Configuration</xf:label>
+	<xf:toggle case="configurationtab" ev:event="DOMActivate" />
+      </xf:trigger>
+    </div>
+    
+    <!-- ................... Edition Tab .......................     -->
+    <xf:switch >
+      <xf:case id="editiontab" selected="true" >
+	<div class="section" >
+	  <h2>Issue</h2>
+
+	  <div class="form-line">
+
+	    <xf:input ref="instance('entity')/code" >
+	      <xf:label>Code</xf:label>
+	    </xf:input>
+
+	    <xf:input ref="instance('entity')/name" >
+	      <xf:label>Name</xf:label>
+	    </xf:input>
+	  </div>
+	  
+	  <div class="form-line">
+	    
+	    <xf:input ref="instance('entity')/deadline-date" >
+	      <xf:label>Deadline</xf:label>
+	    </xf:input>
+
+	    <xf:input ref="instance('entity')/expected-date" >
+	      <xf:label>Expected</xf:label>
+	    </xf:input>
+	  </div>
+
+	  <div class="form-line" >
+	    <xf:textarea ref="description" >
+	      <xf:label>Description</xf:label>
+	    </xf:textarea>
+	  </div>
+
+	  <h3>Log</h3>
+	  <!-- .... Control ............ -->
+
+	  <xf:repeat ref="instance('entity')/control/status|instance('entity')/control/problem"
+		     appearance="compact" id="control-issues" startIndex="1" >
+	    <div class="form-line">
+	      <xf:trigger>
+		<xf:label>X</xf:label>
+		<xf:action ev:event="DOMActivate">
+		  <xf:delete ref="." />
+		</xf:action>
+	      </xf:trigger>
+
+	      <xf:select1 ref="action" >
+		<xf:label>Action</xf:label>
+		<xf:itemset ref="instance('options')/actions/option" >
+		  <xf:label ref="label/text()" />
+		  <xf:value ref="value/text()" />
+		</xf:itemset>
+	      </xf:select1>
+	      <xf:select1 ref="problem" >
+		<xf:label>Problem</xf:label>
+		<xf:itemset ref="instance('options')/problem/option" >
+		  <xf:label ref="label/text()" />
+		  <xf:value ref="value/text()" />
+		</xf:itemset>
+	      </xf:select1>
+	      <xf:input ref="date" >
+		<xf:label>Date</xf:label>
+	      </xf:input>
+
+	    </div>
+
+	    <div class="form-line" >
+	      <xf:textarea ref="description" >
+		<xf:label>Description</xf:label>
+	      </xf:textarea>
+	    </div>
+	  
+	  </xf:repeat>
+	</div>
+	<xf:trigger>
+	  <xf:label>+ Problem</xf:label>
+	  <xf:action ev:event="DOMActivate">
+	    <xf:insert origin="instance('template')/control/problem"
+		       context="instance('entity')/control" ref="problem" at="last()"
+		       position="after" />
+	  </xf:action>
+	</xf:trigger>
+	<xf:trigger>
+	  <xf:label>+ Status</xf:label>
+	  <xf:action ev:event="DOMActivate">
+	    <xf:insert origin="instance('template')/control/status"
+		       context="instance('entity')/control" ref="status" at="last()"
+		       position="after" />
+	  </xf:action>
+	</xf:trigger>
+
+	<!-- ........ // Control ............ -->
+
+
+
+	<!-- ......... // Assignement .......... -->
+	<!--
+	    <xf:select1 ref="status" >	    
+	    <xf:itemset ref="instance('options')/releasestatus/option" >
+	    <xf:label ref="label/text()" />
+	    <xf:value ref="value/text()" />
+	    </xf:itemset>
+	    </xf:select1>
+	-->
+	<div>
+	  <xf:trigger>
+	    <xf:label>Save</xf:label>
+	    <xf:action ev:event="DOMActivate" >
+	      <xf:message level="ephemeral">Saving document ...</xf:message>
+	      <xf:send submission="save" />
+	    </xf:action>
+	  </xf:trigger>
+	  
+	  
+	</div>
+      </xf:case>
+
+      <!-- ................... Client Info  .................. -->
+
+      <xf:case id="client-info" >
+	<div class="section" >
+	  <h2>Client Info</h2>
+	  
+	  <fieldset>
+	    <div class="form-line">
+	      <xf:output ref="instance('entity')/code" >
+		<xf:label>INC00000</xf:label>
+	      </xf:output>
+	      <xf:input ref="instance('entity')/title" >
+		<xf:label>Title</xf:label>
+	      </xf:input>
+	      <xf:input ref="instance('entity')/client-info/req" >
+		<xf:label>Req</xf:label>
+	      </xf:input>
+	    </div>
+	    <div class="form-line">
+	      <xf:input ref="instance('entity')/client-info/drs" >
+		<xf:label>DRS</xf:label>
+	      </xf:input>
+	      <xf:select1 ref="instance('entity')/client-info/application" >
+		<xf:label>Application</xf:label>
+		<xf:itemset ref="instance('options')/application/option" >
+		  <xf:label ref="label/text()" />
+		  <xf:value ref="value/text()" />
+		</xf:itemset>
+	      </xf:select1>
+	      
+	      <xf:select1 ref="client-info/request-category" >
+		<xf:label>Category</xf:label>
+
+		
+		<xf:itemset ref="instance('options')/request-category/option" >
+		  <xf:label ref="label/text()" />
+		  <xf:value ref="value/text()" />
+		</xf:itemset>
+	      </xf:select1>
+	    </div>
+	    <div class="form-line">
+
+	      <xf:input ref="instance('entity')/client-info/version" >
+		<xf:label>Version</xf:label>
+	      </xf:input>
+	      <xf:input ref="instance('entity')/client-info/informer" >
+		<xf:label>Informer</xf:label>
+	      </xf:input>
+	    </div>
+	    
+	    <xf:textarea ref="description" >
+	      <xf:label>Description</xf:label>
+	    </xf:textarea>
+	  </fieldset>
+
+	  <h3>Assignements</h3>
+	  <xf:repeat
+	      ref="instance('entity')/assignement"
+	      appearance="compact" id="assignements" >
+
+	    <div class="form-line" >
+	      <xf:trigger>
+		<xf:label>X</xf:label>
+		<xf:action ev:event="DOMActivate">
+		  <xf:delete ref="." />
+		</xf:action>
+	      </xf:trigger>
+
+	      <xf:select1 ref="team-member" >
+		<xf:label>Team Member</xf:label>
+		<xf:itemset ref="instance('options')/team-members/option" >
+		  <xf:label ref="label/text()" />
+		  <xf:value ref="value/text()" />
+		</xf:itemset>
+	      </xf:select1>
+
+	      <xf:input ref="date" >
+		<xf:label>Date</xf:label>
+	      </xf:input>
+	    </div>
+	    <div class="form-line" >
+
+	      <xf:textarea ref="description" >
+		<xf:label>Description</xf:label>
+	      </xf:textarea>
+	    </div>
+
+	  </xf:repeat>
+	  <xf:trigger>
+	    <xf:label>+ Assignement</xf:label>
+	    <xf:action ev:event="DOMActivate">
+	      <xf:insert
+		  origin="instance('template')/assignement"
+		  context="instance('entity')" ref="status" at="last()"
+		  position="after" />
+	    </xf:action>
+	  </xf:trigger>
+	</div>
+      </xf:case>
+
+      <!-- ................... Review Tab .................. -->
+
+      <xf:case id="configurationtab" >
+
+	<h2>Configuration</h2>
+	<p>Document path configuration. You can adjust the
+	path of the documnet, reload, save again in a
+	different location, etc.
+	</p>
+	<div class="form-line" >
+
+	  <xf:input ref="instance('configuration')/location" />
+	  <xf:input ref="instance('configuration')/url" />
+	</div>
+	<div class="form-line" >
+	  <br/>
+	  <xf:trigger >
+	    <xf:label>Load</xf:label>
+	    <xf:action ev:event="DOMActivate" >
+	      <xf:send submission="load" />
+	      <xf:message level="ephemeral">Loaded document ...</xf:message>
+	    </xf:action>
+	  </xf:trigger>
+	  <xf:trigger>
+	    <xf:label>Save</xf:label>
+	    <xf:action ev:event="DOMActivate" >
+	      <xf:message level="ephemeral">Saving document ...</xf:message>
+	      <xf:send submission="save" />
+	    </xf:action>
+	  </xf:trigger>
+	</div>
+
+      </xf:case>
+
+</xf:switch>
+
+</body>
+</html>

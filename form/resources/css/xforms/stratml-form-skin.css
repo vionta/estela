@@ -1,0 +1,49 @@
+
+body {
+    font-family:"Segoe UI", Helvetica, Arial;
+}
+
+/* ....... Section ......... */
+
+#title-section {
+    background-color:#ffffff;
+}
+
+#mission-section {
+    background-color:#f0f0f0;
+}
+
+#mission-section input[type="text"],  #goal-section input[type="text"], #mission-section  textarea , #mission-section  select , #goal-section  textarea , #goal-section  select  { 
+    background-color:#ffffff;
+ }
+
+/*
+#mission-section element-controls.odd-false {
+    background-color: #ffffff;
+}
+*/
+
+
+#mission-section-content {
+}
+
+#goal-section {
+    background-color:#e5ebf5;
+}
+
+#goal-section element-controls.odd-true {
+
+    background-color: #cdd9ea;
+}
+
+#other.section {
+}
+
+
+element-controls.odd-false {
+    background-color: #f9f9f9;
+}
+
+element-controls.odd-true {
+    background-color: #e6e6e6;
+}

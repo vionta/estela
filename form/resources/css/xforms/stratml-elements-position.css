@@ -1,0 +1,32 @@
+
+
+textarea { resize:both; }
+
+element-controls.odd-false {
+    background-color: #f9f9f9;
+}
+
+element-controls.odd-true {
+    background-color: #e6e6e6;
+}
+
+div.internal-space button, element-buttons  button, element-content button {
+    border:0; background : transparent;
+}
+
+
+/* Especific fields */
+
+.SequenceIndicator-input input {
+    max-width:4em ;
+    margin-left:var(--double-margin);
+    padding-left:0;
+    
+}
+
+line.description , line.description *{
+   margin-top:var(--micro-margin);
+   padding-top:var(--micro-margin);
+ }
+
+

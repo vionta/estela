@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plan-group>
+  <code>2024</code>
+  <name>Year 2024</name>
+  <description>Testing plans 2024</description>
+  <remarks/>
+  <plans><plan>
+      <code>testing-plan-1</code>
+      <name/>
+   </plan>
+    
+  </plans><evaluations><PerformancePlanOrReport DocumentType="Performance_Plan" Language="en">
+   <rsu:stats success="false" total="1" successes="0" failures="1" blanks="0" xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <Name>Performance Testing Plan 1</Name>
+   <code>testing-plan-1</code>
+   <Goal Priority="High">
+      <rsu:stats success="false" total="1" successes="0" failures="1" blanks="0" xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+      <SequenceIndicator>1</SequenceIndicator>
+      <Name>Company expansion</Name>
+      <Objective>
+         <rsu:stats success="false" total="2" successes="1" failures="1" blanks="0" xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+         <PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="" rsu:preferred-visualization="vertical-bars" rsu:weight="45" rsu:result-level="remarkable"  xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0">
+            <rsu:stats success="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+               <rsu:reference-levels count="3"/>
+               <rsu:success-criteria count="0"/>
+               <rsu:plan-elements actualResults="1" targetResults="1"/>
+            </rsu:stats>
+            <evaluation-criteria type="bigger"/>
+            <reference type="optimistic" value="17" enabled="true"/>
+            <reference type="expected" value="12" enabled="true"/>
+            <reference type="pesimistic" value="8" enabled="true"/>
+            <MeasurementInstance>
+               <ActualResult>
+                  <NumberOfUnits>23</NumberOfUnits>
+               </ActualResult>
+               <TargetResult>
+                  <NumberOfUnits>13</NumberOfUnits>
+               </TargetResult>
+            </MeasurementInstance>
+            <MeasurementDimension>Returning customers increase</MeasurementDimension>
+            <UnitOfMeasurement>percentage</UnitOfMeasurement>
+         </PerformanceIndicator>
+         <PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="">
+            <rsu:stats success="false" xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+               <rsu:reference-levels count="0"/>
+               <rsu:success-criteria count="1"/>
+               <rsu:plan-elements actualResults="1" targetResults="1"/>
+            </rsu:stats>
+            <success-criteria type="bigger" value="1" rsu:success="false"  xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0"/>
+            <MeasurementInstance>
+               <ActualResult>
+                  <NumberOfUnits>3000000</NumberOfUnits>
+               </ActualResult>
+               <TargetResult>
+                  <NumberOfUnits>5000000</NumberOfUnits>
+               </TargetResult>
+            </MeasurementInstance>
+            <MeasurementDimension>Sales Volume</MeasurementDimension>
+            <UnitOfMeasurement>Euro</UnitOfMeasurement>
+         </PerformanceIndicator>
+         <SequenceIndicator>1.1</SequenceIndicator>
+         <Name>Sales increase</Name>
+         <Description/>
+      </Objective>
+   </Goal>
+</PerformancePlanOrReport></evaluations>
+</plan-group>

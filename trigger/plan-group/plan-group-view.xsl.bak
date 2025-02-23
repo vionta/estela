@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="1.0">
+
+  <xsl:param   name="entity" select="'issue'" />
+  <xsl:output method="html" encoding="utf-8" indent="yes"/>
+
+  <xsl:template match="/"><html><head>
+    <link rel="stylesheet" type="text/css" href="/resources/css/follow-up.css" />
+    <script src="/resources/js/document-functions.js" />
+  </head>
+  <body>
+    <div class="main-content" >
+      <ul>
+	<xsl:apply-templates  />
+      </ul>
+    </div>
+  </body>
+</html>
+  </xsl:template>
+
+  <xsl:template match="plan-group" >
+    <li >
+      <h3><a href="/view/plan-group/{code}.html" ><xsl:value-of select="name/text()" ></xsl:value-of></a></h3>
+      <a href="{concat('/form/plan-group/' ,  code/text(), '.xml')}"> <img src="/resources/img/edit-blue-icon.svg" alt="Edit" /> </a>
+      <p><xsl:value-of select="remarks/text()" ></xsl:value-of>
+      <xsl:if test="boolean(./plans/plan)" >
+	<ul><xsl:apply-templates select="plans/plan"/></ul>
+      </xsl:if>
+      </p>
+    </li>
+  </xsl:template>
+
+
+  <xsl:template match="plan" >
+    <li>
+      <h4><a href="/view/plan/{code}.html"> [<xsl:value-of select="code" ></xsl:value-of>]    <xsl:value-of select="name/text()" ></xsl:value-of></a></h4>
+            <a href="{concat('/form/PerformancePlanOrReport/' ,  code/text(), '.xml')}"> <img src="/resources/img/edit-blue-icon.svg" alt="Edit" /> </a>
+      <a href="{concat('/form/plan-evaluation/' ,  code/text(), '.xml')}"><img src="/resources/img/configuration.svg" alt="Adjust evaluation" title="Adjust evaluation" /></a>
+      <a href="{concat('/read/PerformancePlanOrReport/' ,  code/text(), '.xml')}"> <img src="/resources/img/view-blue-icon.svg" alt="View" /> </a>
+    </li>
+  </xsl:template>
+
+  <xsl:template match="text()"></xsl:template>
+
+</xsl:stylesheet>

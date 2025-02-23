@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sal:salvora-application
+    xmlns:sal="net:vionta:schemas:salvora:mapping:v1.0"
+    >
+
+  <collection
+      name="home" path="home.html" internal-path="conf/index/plans.html"
+      write-allowed="false"   />
+
+  <collection
+      name="conf" base-path="conf"  />
+
+  <collection
+      name="resources" base-path="resources"
+      base-internal-path="form/resources"  />
+  
+  <collection
+      name="documents" base-path="documents"
+      base-internal-path="data" write-allowed="true" />
+
+  <transformation
+      name="form-config" type="local_file"
+      path="form/:entity/:code.xml"  internal-path="form/:entity.xml"  >
+    <step name="instancecode" type="string" >
+      <path-parameter
+	  key="entity" transformation-param-name="ENTITY" />
+      <path-parameter
+	  key="code" transformation-param-name="INSTANCE_CODE" />
+      <parameter key="TEMPLATE_LOCATION" value="collections" />
+    </step>
+  </transformation>
+
+  <transformation
+      name="form-config" type="local_file"
+      path="read/:entity/:code.xml"  internal-path="read/:entity.xml"  >
+    <step name="instancecode" type="string" >
+      <path-parameter
+	  key="entity" transformation-param-name="ENTITY" />
+      <path-parameter
+	  key="code" transformation-param-name="INSTANCE_CODE" />
+      <parameter key="TEMPLATE_LOCATION" value="collections" />
+    </step>
+  </transformation>
+  
+  <transformation
+      name="new-form-config" type="local_file"
+      path="new/:entity.xml" internal-path="form/:entity.xml"  >
+    <!-- Simple string substitution transformation -->
+    <step name="instancecode" type="string" >
+      <path-parameter
+	  key="entity" transformation-param-name="ENTITY" />
+      <parameter
+	  key="INSTANCE_CODE" value="template" />
+      <parameter key="TEMPLATE_LOCATION" value="conf/template" />
+    </step>
+  </transformation>
+
+  <collection
+      name="static-form-config" type="local_file"
+      base-path="static-form"  base-internal-path="form"
+      write-allowed="false"  file-list="false" >
+  </collection>
+  
+  <collection
+      name="issues" base-path="collections/:entity"     file-list="true"
+      base-internal-path="data/:entity"  write-allowed="true" >
+  </collection>
+
+<!-- .... Pendiente de prueba .... -->
+  <collection
+      name="plans" path="plans/:code.xml" file-list="true"
+      internal-path="data/PerformancePlanOrReport/:code.xml"  write-allowed="true" >
+   <trigger name="evaluation-view" before="false"
+	    source="trigger/plan/evaluation.xpl" >
+     <path-parameter key="code"
+	   transformation-param-name="code" />
+   </trigger>
+       <trigger name="file-indek" before="true"
+	     source="trigger/list.xpl" >
+      <parameter key="entity" value="PerformancePlanOrReport" />
+    </trigger>
+  </collection>
+  
+  <!-- ........... The Issues Index file ............  -->
+  <collection
+      name="index" path="index/:entity.html" internal-path="conf/index/:entity.html"
+      write-allowed="false" >
+    <trigger name="file-indek" before="true"
+	     source="trigger/list.xpl" >
+      <path-parameter
+	  key="entity" transformation-param-name="entity" />
+    </trigger>
+  </collection>
+  
+  <collection
+      name="basic-reports" base-path="report/entity"
+      base-internal-path="conf/index"
+      >
+  </collection>
+
+  <!-- Options -->
+  <transformation
+      name="xslt_transformation_test" type="local_file"
+      path="options.xml" internal-path="conf/options.xml"  >   
+    <step name="instancecode" type="xslt" source="trigger/options-view.xsl" >
+      <request-parameter
+	  key="tuno" transformation-param-name="query-param" />
+      <parameter
+	  key="param-test" value="'setted'" />      
+    </step>
+  </transformation>
+
+  <!-- Views ...................... -->
+  <!-- - Plan Groups ...................... -->
+  <collection
+      name="view-plan-groups" path="view/plan-groups.html"
+      internal-path="report/plan-groups.html"
+      >
+    <trigger name="plan-groups-view" before="true"
+	     source="trigger/plan-group/list.xpl" />
+  </collection>
+
+  <!-- - Plan Group ...................... -->
+  <collection
+      name="view-plan-group" path="view/plan-group/:code.html"
+      internal-path="report/plan-group/:code.html" >
+    <trigger name="plan-group-view" before="true"
+	     source="trigger/plan-group/view.xpl" >    
+      <path-parameter key="code"
+	    transformation-param-name="code" />
+    </trigger>
+  </collection>
+
+  <!-- - Plan ...................... -->
+  <collection
+      name="view-plan" path="view/plan/:code.html"
+      internal-path="report/plan/:code.html" >
+   <trigger name="evaluation-view" before="true"
+	    source="trigger/plan/evaluation.xpl" >
+     <path-parameter key="code"
+	   transformation-param-name="code" />
+   </trigger>
+   <trigger name="plan-group-view" before="true"
+	     source="trigger/plan/view.xpl" >
+      <path-parameter key="code"
+	    transformation-param-name="code" />
+    </trigger> 
+ </collection>
+
+ <!-- ........... Plan Evaluation ............. -->
+ <collection
+     name="plan-evaluation" path="plan-evaluation/:code.xml"
+     internal-path="report/plan-evaluation/:code.xml"
+     write-allowed="false" >
+   <trigger name="evaluation-view" before="true"
+	    source="trigger/plan/evaluation.xpl" >
+     <path-parameter key="code"
+	   transformation-param-name="code" />
+   </trigger>
+ </collection>
+
+</sal:salvora-application>

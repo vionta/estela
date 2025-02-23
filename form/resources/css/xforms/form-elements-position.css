@@ -1,0 +1,267 @@
+
+
+element-list, list-controls, 
+plan-element, element-title,
+element-content , element-buttons {
+    padding-left: var(--single-margin);
+}
+
+
+/* ------------------- Lists of elements *******************/
+
+element-list {
+    display:block;
+}
+
+element-list-header {
+    font-size:100%;
+    display:block;
+    margin-left:0;
+    margin-top:0.6em;
+    margin-bottom:0.4em;
+}
+
+list-controls {
+    display:inline-block;
+    margin-bottom:var(--double-margin);
+
+}
+
+list-controls .xforms-value {
+    font-size:90%;
+    font-family:arial;
+    font-weight:400;   
+}
+
+element-title {
+    margin-bottom:0.4em;
+    color:#777777;
+    font-size:120%;
+    display:block;
+    font-weight:600;
+    vertical-align:top; 
+}
+
+
+plan-element {
+    margin-bottom:0.4em;
+    margin-top:0.6em;
+    display:flex;
+    flex-direction:row;
+}
+
+element-main-section {
+    display:flex;
+    flex-direction:column;
+}
+
+
+element-content, element-title, element-buttons {
+    display:block;
+    padding-left:var(--double-margin);
+}
+
+element-buttons {
+    margin-top:var(--double-margin);
+    display: inline; 
+}
+
+element-controls {
+    display : block ;
+    float :left;
+    padding:0;
+    padding-top: var(--simple-margin);
+    margin-left: var(--mini-margin);
+}
+
+
+element-controls * {
+    display : block ;
+    margin-bottom: var(--double-margin);
+}
+
+
+/* ------------------- Lines of fields and fields  *******************/
+
+line, div.line {
+    display:block;
+    width :100%;
+    margin-left:0;
+    padding-left:var(--double-margin);
+
+    padding-top:var(--double-margin);
+    padding-bottom:var(--double-margin) ;
+    line-height:110%;
+}
+
+line * , div.line *  {
+    margin-left:0;
+}
+
+line.input-fields {
+    display: block inline;
+}
+
+line.first-buttons {
+    margin-top: var(--double-margin);
+}
+
+field {
+    margin-top:var(--double-margin) ;
+    display:inline-block;
+    text-align:left;
+}
+
+field button, field.attribute-field {
+    margin-right:1em;
+}
+
+field-label {
+    display:inline-block;
+    min-width:10em;
+    vertical-align:top;
+}
+
+field-control input {
+    min-width:10em;
+}
+
+field-label *  {
+    display:inline;
+}
+
+textarea {
+    display : block ; 
+    min-width : 45em;
+    min-height: 4em ;
+    overflow:visible;
+}
+
+.xforms-label {
+    font-size:13pt ; 
+    font-family:arial, verdana ; 
+    font-weight:500;
+}
+
+
+ input[type="text"], textarea , select  { 
+    border : 0 ; 
+    border-bottom : 1px solid #b1c1d7 ; 
+    border-radius: 3px;
+    font-size:105%;
+    margin-left:var(--double-margin);
+    background-color:#fafaff;
+ }
+
+ textarea {
+     margin-left:var(--double-margin);
+    font-size:120%;
+ }
+ 
+ .calendar .title, .calendar .title input, .calendar .title select, .calendar tfoot {
+    font-weight			: bold;
+    color				: #172e49;
+    text-align			: center;
+    background-color	: #f8f8f8;
+    background-image	: url(../img/titleBackground.png);
+}
+
+
+.hiddeninput input, input.hiddeninput, input[type='text'].borderless, input[type='text'].hiddeninput  {
+    border:0;
+    font-family:Helvetica, arial;
+    font-size:100%;
+}
+
+
+.longinput input, input.Name {
+    min-width:40em;
+}
+
+.midinput input {
+    min-width:18em;
+}
+
+.smallinput input {
+    width:3em;
+    display:inline;
+}
+
+
+/* .............. Buttons ......................*/
+
+
+element-buttons button, element-content button, .section button, field label {
+    /*
+    color : #777777 ;
+   */
+    color : #555555 ;
+}
+
+.add-button button {
+    color : #172e49 ;
+    background: transparent;	
+    border: 0;
+}
+
+/*
+.add-button label {
+	color : #172e49 ; 
+}
+
+
+.add-button button .xforms-label {
+    color : #172e49 ; 
+}
+*/
+
+/* 
+ * Boton con icono (sin texto)
+ */
+.iconbutton button, #lang-selector button {
+    background:transparent;     
+    color : #172e49 ; 
+    border:0;
+}
+
+.iconbutton button .xforms-label {
+    color : #172e49 ; 
+}
+
+
+
+
+/* ............... Inputs without border ................ */
+ input.hiddeninput, .hiddeninput input.xforms-value {
+     border:0;
+ }
+input.hiddenseqind, .hiddenseqind input.xforms-value {
+    width: 1.5em;
+    overflow:visible;
+    text-align:center;
+    vertical-align:middle;
+ }
+
+
+/* ............... Close Buttons ............... */
+
+div.final-button-set {
+    width:60%;
+    margin-left:25%;
+}
+
+div.form-action-button-set {
+    text-align: center;
+    padding-left: 25%;
+    margin-bottom:3em;
+}
+
+div.form-action-button-set button {
+    border: 2px solid #172e49;
+    padding:var(--double-margin);
+    color: #172e49;
+    font-weight:600;
+    background-color: transparent;
+    border-radius: 8px;
+    margin-right:var(--triple-margin);
+}
