@@ -10,4 +10,72 @@
       <value>Entrega</value><label>Entrega</label>
     </option>    
   </actions>
+  <problem>
+    <option>
+      <value>Petición sin ETT</value><label>Petición sin ETT</label>
+    </option>
+    <option>
+      <value>Error en ITSM</value><label>Error in ITSM</label>
+    </option>
+  </problem>
+  <team-members>
+    <option>
+      <value>Juan Perez</value><label>Juan Perez</label>
+    </option>
+  </team-members>
+  <application>
+    <option>
+      <value>C360</value><label>C360</label>
+    </option>
+    <option>
+      <value>U360</value><label>U360</label>
+    </option>
+      <option>
+      <value>COMA</value><label>COMA</label>
+      </option>
+      <option>
+      <value>GEAL</value><label>GEAL</label>
+      </option>
+      <option>
+      <value>TRAN</value><label>TRAN</label>
+      </option>
+  </application>
+  <application>
+    <option>
+      <value>C360</value><label>C360</label>
+    </option>
+    <option>
+      <value>U360</value><label>U360</label>
+    </option>
+      <option>
+      <value>COMA</value><label>COMA</label>
+      </option>
+      <option>
+      <value>GEAL</value><label>GEAL</label>
+      </option>
+      <option>
+      <value>TRAN</value><label>TRAN</label>
+      </option>
+  </application>
+  <application>
+    <option>
+      <value>C360</value><label>C360</label>
+    </option>
+    <option>
+      <value>U360</value><label>U360</label>
+    </option>
+      <option>
+      <value>COMA</value><label>COMA</label>
+      </option>
+      <option>
+      <value>GEAL</value><label>GEAL</label>
+      </option>
+      <option>
+      <value>TRAN</value><label>TRAN</label>
+      </option>
+  </application>
+  <request-category>
+    <option><value>1-aoea</value><label>1-oeu</label></option>
+    <option><value>2-aoea</value><label>2-oeu</label></option>
+  </request-category>
 </data>
