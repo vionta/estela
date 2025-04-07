@@ -9,125 +9,143 @@
       </head>
       <body>
          <div class="header-content">
-            <link rel="stylesheet"
-                  type="text/css"
-                  href="/resources/css/follow-up.css">
-               <div id="header-links"
-                    class="navigation-links">
-                  <a href="/home.html">
-                     <img src="/resources/img/estela/estela-white-top-icon-home.png"
-                          class="top-white-icon">
-    Home</a>
-                     <!--
-	    <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>-->
-                     <a href="/index/PerformancePlanOrReport.html">
-                        <img src="/resources/img/estela/estela-white-top-icon-plans.png"
-                             class="top-white-icon">
-    
-Plans </a>
-                        <!--
-	    <a href="/index/plan-group.html">Plan Groups</a>
-	    -->
-                        <a href="/view/plan-groups.html">
-                           <img src="/resources/img/estela/estela-white-top-icon-follow-up.png"
-                                class="top-white-icon">
-	    Follow up</a>
-                           <a href="/static-form/evaluation-configuration.xml">
-                              <img src="/resources/img/estela/estela-white-top-icon-configuration.png"
-                                   class="top-white-icon">
-	    Configuration</a>
-                           </div>
-                           <header>
-                              <h1>
-                                 <img src="/resources/img/estela/estela-title-icon.png"
-                                      id="title-icon">Estela
-  <img src="/resources/img/estela/estela-title-legend.png"
-                                         id="title-icon"
-                                         alt="The StratML Toolkit">
-                                    </h1>
-                                 </header>
+            <h1>Estela</h1>
+            <h2>The StratML 3 toolkit</h2>
+            <div id="header-links"
+                 class="navigation-links">
+               <a href="/home.html">Home</a>
+               <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>
+               <a href="/index/PerformancePlanOrReport.html"> Manage Plans </a>
+               <a href="/index/plan-group.html">Plan Groups</a>
+               <a href="/view/plan-groups.html">Follow up</a>
+               <a href="/static-form/evaluation-configuration.xml"> Configuration</a>
+            </div>
+         </div>
+         <div class="main-content">
+            <header>
+               <h3>plan-groups</h3>
+            </header>
+            <main>
+               <div class="tableset">
+                  <div class="line">
+                     <div class="linkset">
+                        <a href="/report/entity/plan-group-report.html">Report</a> | <a href="/report/entity/plan-group.xml">Data</a>
+                     </div>
+                  </div>
+                  <table class="entity-list">
+                     <tr>
+                        <th>CODE</th>
+                        <th>NAME</th>
+                        <th>DESC</th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                     </tr>
+		     <!--
+                     <tr>
+                        <td>
+                           <a href="/form/plan-group/2024.xml">Year 2024</a>
+                        </td>
+                        <td>Testing plans 2024</td>
+                        <td>
+                           <a name="borrar-2024"
+                              onclick="deleteDocument('2024','plan-group')">
+                              <img src="/resources/img/delete-blue-icon.svg"
+                                   alt="Delete">
+                              </a>
+                           </td>
+                           <td>
+                              <a href="/form/plan-group/2024.xml">
+                                 <img src="/resources/img/edit-blue-icon.svg"
+                                      alt="Edit">
+                                 </a>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <a href="/form/plan-group/test-3.xml">Test 3</a>
+                              </td>
+                              <td>Test 3 Plan</td>
+                              <td>
+                                 <a name="borrar-test-3"
+                                    onclick="deleteDocument('test-3','plan-group')">
+                                    <img src="/resources/img/delete-blue-icon.svg"
+                                         alt="Delete">
+                                    </a>
+                                 </td>
+                                 <td>
+                                    <a href="/form/plan-group/test-3.xml">
+                                       <img src="/resources/img/edit-blue-icon.svg"
+                                            alt="Edit">
+                                       </a>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <a href="/form/plan-group/testing-plans-2.xml">Testing Plans 2</a>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                       <a name="borrar-testing-plans-2"
+                                          onclick="deleteDocument('testing-plans-2','plan-group')">
+                                          <img src="/resources/img/delete-blue-icon.svg"
+                                               alt="Delete">
+                                          </a>
+                                       </td>
+                                       <td>
+                                          <a href="/form/plan-group/testing-plans-2.xml">
+                                             <img src="/resources/img/edit-blue-icon.svg"
+                                                  alt="Edit">
+                                             </a>
+                                          </td>
+                                       </tr>
+				 -->
+                  </table>
+                                    <div class="line">
+                                       <div class="linkset">
+                                          <a href="/new/plan-group.xml?entity=plan-group">
+                                             <img src="/resources/img/add-blue-icon.svg"> New plan-group</a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </main>
                               </div>
-                              <div class="main-content">
-                                 <header>
-                                    <h3>Plan Groups</h3>
-                                 </header>
-                                 <main>
-                                    <div class="tableset">
-                                       <table class="entity-list">
-                                          <tr>
-                                             <th>Plan Group</th>
-                                             <th>DESC</th>
-                                             <th>
-                                             </th>
-                                             <th>
-                                             </th>
-                                          </tr>
-                                          <tr>
-                                             <td>
-                                                <a href="/form/plan-group/first-plan-group.xml">Your First Plan Group</a>
-                                             </td>
-                                             <td>
-                                             </td>
-                                             <td>
-                                                <a name="borrar-first-plan-group"
-                                                   onclick="deleteDocument('first-plan-group','plan-group')">
-                                                   <img src="/resources/img/delete-blue-icon.svg"
-                                                        alt="Delete">
-                                                   </a>
-                                                </td>
-                                                <td>
-                                                   <a href="/form/plan-group/first-plan-group.xml">
-                                                      <img src="/resources/img/edit-blue-icon.svg"
-                                                           alt="Edit">
-                                                      </a>
-                                                   </td>
-                                                </tr>
-                                             </table>
-                                             <div class="line">
-                                                <div class="linkset final-button-set">
-                                                   <a href="/new/plan-group.xml?entity=plan-group"> New Plan Group</a>
-                                                </div>
-                                             </div>
-                                             <br>
-                                                <br>
-                                                   <br>
-                                                   </div>
-                                                </main>
-                                             </div>
-                                             <footer>
-                                                <div id="footer-links"
-                                                     class="navigation-links footer-group">
-                                                   <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>
-                                                   <a href="/index/PerformancePlanOrReport.html"> Manage Plans </a>
-                                                   <a href="/index/plan-group.html">Plan Groups</a>
-                                                   <a href="/view/plan-groups.html">Follow up</a>
-                                                   <a href="/static-form/evaluation-configuration.xml"> Configuration</a>
-                                                </div>
-                                                <div class="footer-group">
-                                                   <p>
-                                                      <b>Salvora showcase application.</b>
-                                                   </p>
-                                                   <p>This sample application is a showcase of Salvora. Salvora is an small tool for managing xforms, documents and transformations directly from the local system. You can learn more about Salvora at https:/github.com/vionta/salvora</p>
-                                                </div>
-                                                <div class="footer-group">
-                                                   <p>
-                                                      <b>Acknowledgements</b>
-                                                   </p>
-                                                   <p>Salvora is based on several key components including: </p>
-                                                   <ul>
-                                                      <li>Xslt Forms</li>
-                                                      <li>Saxon</li>
-                                                      <li>Morgana XProc</li>
-                                                      <li>Quarkus</li>
-                                                      <li>Vert.x</li>
-                                                   </ul>
-                                                </div>
-                                                <div class="footer-group">
-                                                   <p>
-                                                      <b>Contact</b>
-                                                   </p>
-                                                   <p>Salvora is provided by Vionta.net.</p>
-                                                </div>
-                                             </footer>
-                                          </body>
-                                       </html>
+                              <footer>
+                                 <div id="footer-links"
+                                      class="navigation-links">
+                                    <a href="/new/PerformancePlanOrReport.xml?entity=PerformancePlanOrReport"> Create a Plan </a>
+                                    <a href="/index/PerformancePlanOrReport.html"> Manage Plans </a>
+                                    <a href="/index/plan-group.html">Plan Groups</a>
+                                    <a href="/view/plan-groups.html">Follow up</a>
+                                    <a href="/static-form/evaluation-configuration.xml"> Configuration</a>
+                                 </div>
+                                 <div>
+                                    <p>
+                                       <b>Salvora showcase application.</b>
+                                    </p>
+                                    <p>This sample application is a showcase of Salvora. Salvora is an small tool for managing xforms, documents and transformations directly from the local system. You can learn more about Salvora at https:/github.com/vionta/salvora</p>
+                                 </div>
+                                 <div>
+                                    <p>
+                                       <b>Acknowledgements</b>
+                                    </p>
+                                    <p>Salvora is based on several key components including: </p>
+                                    <ul>
+                                       <li>Xslt Forms</li>
+                                       <li>Saxon</li>
+                                       <li>Morgana XProc</li>
+                                       <li>Quarkus</li>
+                                       <li>Vert.x</li>
+                                    </ul>
+                                 </div>
+                                 <div>
+                                    <p>
+                                       <b>Contact</b>
+                                    </p>
+                                    <p>Salvora is provided by Vionta.net.</p>
+                                 </div>
+                              </footer>
+                           </body>
+                        </html>
