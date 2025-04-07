@@ -59,23 +59,23 @@ Plans </a>
 
 	
 	<xf:label>General Plan Result Threshold  
-	<xf:input ref="threshold"/>
+	<xf:input ref="threshold" name="threshold-param"/>
 	</xf:label>
 	<br/>
 	<br/>
 	
 	<xf:label>Pesmistic
-	<xf:input ref="weight/pesimistic"/>
+	<xf:input ref="weight/pesimistic" name="pesimistic-param"/>
 	</xf:label>
 	<br/>
 	
 	<xf:label>Expected
-	<xf:input ref="weight/expected"/>
+	<xf:input ref="weight/expected" name="expected-param"/>
 	</xf:label>
 	<br/>
 
 	<xf:label>Optimistic
-	<xf:input ref="weight/optimistic"/>
+	<xf:input ref="weight/optimistic" name="optimistic-param"/>
 	</xf:label>
 	<br/>	
       </div>
