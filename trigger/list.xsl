@@ -113,7 +113,8 @@
 	<a href="{concat('/form/',$entity, '/' ,  code/text(), '.xml')}"><img src="/resources/img/edit-blue-icon.svg" alt="Edit" /></a>
 
 	<a href="{concat('/read/',$entity, '/' ,  code/text(), '.xml')}"> <img src="/resources/img/view-blue-icon.svg" alt="View" /> </a>
-      </td>      
+    	<a href="{concat('/form/plan-evaluation/' ,  code/text(), '.xml')}"><img src="/resources/img/configuration.svg" alt="Adjust evaluation" title="Adjust evaluation" /></a>
+   	 </td>      
 
       <!--
       <td>
