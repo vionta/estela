@@ -18,7 +18,7 @@
       name="documents" base-path="documents"
       base-internal-path="data" write-allowed="true" />
 
-  <transformation
+  <collection
       name="form-config" type="local_file"
       path="form/:entity/:code.xml"  internal-path="form/:entity.xml"  >
     <step name="instancecode" type="string" >
@@ -28,9 +28,9 @@
 	  key="code" transformation-param-name="INSTANCE_CODE" />
       <parameter key="TEMPLATE_LOCATION" value="collections" />
     </step>
-  </transformation>
+  </collection>
 
-  <transformation
+  <collection
       name="form-config" type="local_file"
       path="read/:entity/:code.xml"  internal-path="read/:entity.xml"  >
     <step name="instancecode" type="string" >
@@ -40,9 +40,9 @@
 	  key="code" transformation-param-name="INSTANCE_CODE" />
       <parameter key="TEMPLATE_LOCATION" value="collections" />
     </step>
-  </transformation>
+  </collection>
   
-  <transformation
+  <collection
       name="new-form-config" type="local_file"
       path="new/:entity.xml" internal-path="form/:entity.xml"  >
     <!-- Simple string substitution transformation -->
@@ -53,7 +53,7 @@
 	  key="INSTANCE_CODE" value="template" />
       <parameter key="TEMPLATE_LOCATION" value="conf/template" />
     </step>
-  </transformation>
+  </collection>
 
   <collection
       name="static-form-config" type="local_file"
@@ -99,7 +99,7 @@
   </collection>
 
   <!-- Options -->
-  <transformation
+  <collection
       name="xslt_transformation_test" type="local_file"
       path="options.xml" internal-path="conf/options.xml"  >   
     <step name="instancecode" type="xslt" source="trigger/options-view.xsl" >
@@ -108,7 +108,7 @@
       <parameter
 	  key="param-test" value="'setted'" />      
     </step>
-  </transformation>
+  </collection>
 
   <!-- Views ...................... -->
   <!-- - Plan Groups ...................... -->
