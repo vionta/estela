@@ -1,8 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues><PerformancePlanOrReport DocumentType="Performance_Report" Language="es">
-   <Name>Your First Plan</Name>
-   <code>your-first-plan</code>
-   <Goal Priority="To_Be_Determined">
-      <Name>Your First Goal</Name>
-   </Goal>
-</PerformancePlanOrReport></issues>
+<issues>
+  <!--
+  <PerformancePlanOrReport DocumentType="Performance_Plan" Language="en"><Name>Performance Testing Plan 1</Name>
+<code>testing-plan-1</code>
+<Goal Priority="High"><SequenceIndicator>1</SequenceIndicator><Name>Company expansion</Name><Objective>
+
+<PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="" rsu:preferred-visualization="vertical-bars" rsu:weight="45"  xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0"><evaluation-criteria type="bigger"/><reference type="optimistic" value="17" enabled="true"/><reference type="expected" value="12" enabled="true"/><reference type="pesimistic" value="8" enabled="true"/>
+
+
+
+
+<MeasurementInstance><ActualResult><NumberOfUnits>23</NumberOfUnits>
+
+</ActualResult><TargetResult><NumberOfUnits>13</NumberOfUnits>
+
+</TargetResult></MeasurementInstance>
+<MeasurementDimension>Returning customers increase</MeasurementDimension>
+<UnitOfMeasurement>percentage</UnitOfMeasurement>
+</PerformanceIndicator><PerformanceIndicator ValueChainStage="" PerformanceIndicatorType=""><success-criteria type="bigger" value="1"/><MeasurementInstance><ActualResult><NumberOfUnits>3000000</NumberOfUnits>
+
+</ActualResult><TargetResult><NumberOfUnits>5000000</NumberOfUnits>
+
+</TargetResult></MeasurementInstance>
+<MeasurementDimension>Sales Volume</MeasurementDimension>
+<UnitOfMeasurement>Euro</UnitOfMeasurement>
+</PerformanceIndicator><SequenceIndicator>1.1</SequenceIndicator>
+<Name>Sales increase</Name>
+<Description/>
+</Objective></Goal>
+</PerformancePlanOrReport><PerformancePlanOrReport DocumentType="Performance_Plan" Language="en"><Name>Performance Testing Plan 2</Name>
+<code>testing-plan-2</code>
+<Goal Priority="High"><SequenceIndicator>1</SequenceIndicator><Name>Company expansion</Name><Objective>
+
+<PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="" rsu:preferred-visualization="vertical-bars" rsu:weight="45"  xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0"><evaluation-criteria type="bigger"/><reference type="optimistic" value="17" enabled="true"/><reference type="expected" value="12" enabled="true"/><reference type="pesimistic" value="8" enabled="true"/>
+
+
+
+
+<MeasurementInstance><ActualResult><NumberOfUnits>23</NumberOfUnits>
+
+</ActualResult><TargetResult><NumberOfUnits>13</NumberOfUnits>
+
+</TargetResult></MeasurementInstance>
+<MeasurementDimension>Returning customers increase</MeasurementDimension>
+<UnitOfMeasurement>percentage</UnitOfMeasurement>
+</PerformanceIndicator><PerformanceIndicator ValueChainStage="" PerformanceIndicatorType=""><success-criteria type="bigger" value="1"/><MeasurementInstance><ActualResult><NumberOfUnits>3000000</NumberOfUnits>
+
+</ActualResult><TargetResult><NumberOfUnits>5000000</NumberOfUnits>
+
+</TargetResult></MeasurementInstance>
+<MeasurementDimension>Sales Volume</MeasurementDimension>
+<UnitOfMeasurement>Euro</UnitOfMeasurement>
+</PerformanceIndicator><PerformanceIndicator ValueChainStage="" PerformanceIndicatorType=""><success-criteria type="bigger" value="1"/><MeasurementInstance><ActualResult><NumberOfUnits>55</NumberOfUnits>
+<Description/>
+</ActualResult><TargetResult><NumberOfUnits>43</NumberOfUnits>
+
+</TargetResult></MeasurementInstance>
+<MeasurementDimension>Net margin</MeasurementDimension>
+<UnitOfMeasurement>euros</UnitOfMeasurement>
+</PerformanceIndicator><SequenceIndicator>1.1</SequenceIndicator>
+<Name>Sales increase</Name>
+<Description/>
+</Objective><Objective><PerformanceIndicator ValueChainStage="" PerformanceIndicatorType=""><success-criteria type="bigger" value="1"/><MeasurementInstance><ActualResult><NumberOfUnits>55</NumberOfUnits>
+
+</ActualResult><TargetResult><NumberOfUnits>23</NumberOfUnits>
+
+</TargetResult></MeasurementInstance>
+<MeasurementDimension>meas 1</MeasurementDimension>
+<UnitOfMeasurement/>
+</PerformanceIndicator>
+<Name>Just for meassures</Name>
+<Description/>
+</Objective></Goal>
+</PerformancePlanOrReport><PerformancePlanOrReport DocumentType="Performance_Plan" Language="en"><Name>Performance Testing Plan 43</Name>
+<code>testing-plan-43</code>
+<Goal Priority="High"><SequenceIndicator>1</SequenceIndicator><Name>Company expansion</Name><Objective>
+
+<PerformanceIndicator ValueChainStage="" PerformanceIndicatorType="" rsu:preferred-visualization="vertical-bars" rsu:weight="45"  xmlns:rsu="http://www.vionta.net/xsd/stratml-results/1.0"><evaluation-criteria type="bigger"/><reference type="optimistic" value="17" enabled="true"/><reference type="expected" value="12" enabled="true"/><reference type="pesimistic" value="8" enabled="true"/>
+
+
+
+
+<MeasurementInstance><ActualResult><NumberOfUnits>23</NumberOfUnits>
+
+</ActualResult><TargetResult><NumberOfUnits>17</NumberOfUnits>
+
+</TargetResult></MeasurementInstance>
+<MeasurementDimension>Returning customers increase</MeasurementDimension>
+<UnitOfMeasurement>percentage</UnitOfMeasurement>
+</PerformanceIndicator><PerformanceIndicator ValueChainStage="" PerformanceIndicatorType=""><success-criteria type="bigger" value="1"/><MeasurementInstance><ActualResult><NumberOfUnits>3000000</NumberOfUnits>
+
+</ActualResult><TargetResult><NumberOfUnits>5000000</NumberOfUnits>
+
+</TargetResult></MeasurementInstance>
+<MeasurementDimension>Sales Volume</MeasurementDimension>
+<UnitOfMeasurement>Euro</UnitOfMeasurement>
+</PerformanceIndicator><SequenceIndicator>1.1</SequenceIndicator>
+<Name>Sales increase</Name>
+<Description/>
+</Objective></Goal>
+</PerformancePlanOrReport>
+-->
+</issues>
