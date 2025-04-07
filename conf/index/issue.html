@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet"
+            type="text/css"
+            href="/resources/css/style.css">
+         <link rel="stylesheet"
+               type="text/css"
+               href="/resources/css/entity-list.css">
+            <script src="/resources/js/document-functions.js">
+            </script>
+         </head>
+         <body>
+            <header>
+               <h3>issues</h3>
+               <breadcrumb>
+                  <a href="/home.html"> &gt; home </a>
+               </breadcrumb>
+            </header>
+            <main>
+               <div class="tableset">
+                  <div class="line">
+                     <div class="linkset">
+                        <a href="/report/entity/issue-report.html">Report</a> | <a href="/report/entity/issue.xml">Data</a>
+                     </div>
+                  </div>
+                  <table class="enity-list">
+                     <tr>
+                        <th>CODE</th>
+                        <th>NAME</th>
+                        <th>DESC</th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                     </tr>
+                     <tr>
+                        <td>example-one</td>
+                        <td>Issue Example One</td>
+                        <td>This is a data example</td>
+                        <td>
+                           <a name="borrar-example-one"
+                              onclick="deleteDocument('example-one','issue')">
+                              <img src="/resources/img/delete-blue-icon.svg"
+                                   alt="Delete">
+                              </a>
+                           </td>
+                           <td>
+                              <a href="/form/issue/example-one.xml">
+                                 <img src="/resources/img/edit-blue-icon.svg"
+                                      alt="Edit">
+                                 </a>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>issue-2</td>
+                              <td>Issue Example Two</td>
+                              <td>Some more data example</td>
+                              <td>
+                                 <a name="borrar-issue-2"
+                                    onclick="deleteDocument('issue-2','issue')">
+                                    <img src="/resources/img/delete-blue-icon.svg"
+                                         alt="Delete">
+                                    </a>
+                                 </td>
+                                 <td>
+                                    <a href="/form/issue/issue-2.xml">
+                                       <img src="/resources/img/edit-blue-icon.svg"
+                                            alt="Edit">
+                                       </a>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <div class="line">
+                                 <div class="linkset">
+                                    <a href="/new/issue.xml?entity=issue">
+                                       <img src="/resources/img/add-blue-icon.svg"> New issue</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </main>
+                        </body>
+                     </html>
