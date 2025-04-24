@@ -15,15 +15,30 @@
   </p:load>
 
   <p:for-each name="files" >
+
     <p:with-input select="/*:plan-group/*:plans/*:plan/*:code"  />
+
     <p:output port="result">
       <p:pipe step="iteration-end" port="result"/>
     </p:output>
-    
-    <p:load name="load-plan-content"  >
-      <p:with-option
-	  name="href" select="concat('../../report/plan-evaluation/', ./*:code/text(), '.xml')" />
-    </p:load>
+
+    <p:try>
+      <p:group>
+	<p:load name="load-plan-content"  >
+	  <p:with-option
+	      name="href" select="concat('../../report/plan-evaluation/', ./*:code/text(), '.xml')" />
+	</p:load>
+      </p:group>
+      <p:catch>
+	<p:identity message="Plan {./*:code/text()} not found">
+          <p:with-input>
+            <p:inline>
+              <err>Plan {./*:code/text()} could not be find</err>
+            </p:inline>
+          </p:with-input>
+	</p:identity>
+      </p:catch>
+    </p:try>
     <p:identity name="iteration-end" />
   </p:for-each>
   
@@ -40,14 +55,13 @@
     </p:with-input>
   </p:insert>
 
-<!--
+
   <p:store name="debug-serialization" >
     <p:with-input port="source">
       	<p:pipe step="insertion" port="result"/>
     </p:with-input>
     <p:with-option name="href" select="'../../report/debug-group-report.xml'" />
   </p:store>
--->
   
   <p:xslt name="final-list">
     <p:with-input port="stylesheet" href="./plan-group-view.xsl"/>
