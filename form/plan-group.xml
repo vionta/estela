@@ -8,6 +8,7 @@
     <title>Plan Groups</title>
 
     <link rel="stylesheet" type="text/css" href="/resources/css/form-style.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/form-style.css"/>
     <xf:model id="m">
       <xsd:schema targetNamespace="http://vionta.net/schemas/salvora/1.0" xmlns:sal="http://vionta.net/schemas/salvora/1.0">
 	<xsd:simpleType name="Code">
@@ -78,7 +79,7 @@ Plans </a>
 </div>
 
       <!-- ................... Edition Tab .......................     -->
-      <div class="main-content">
+      <main class="centered-form">
 	<h3>Plan Group</h3>
 	
 	<div class="form-line">
@@ -181,7 +182,7 @@ Plans </a>
 	    <xf:insert origin="instance('template')/plans/plan" context="instance('entity')/plans" ref="plan" at="last()" position="after"/>
 	  </xf:action>
 	</xf:trigger>
-      </div>
+      </main>
 
       <div>
 	<div class="form-action-button-set">
