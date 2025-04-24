@@ -111,38 +111,62 @@
 
   <xsl:template match="Goal" >
     <tr>
-      <td colspan="3" rowspan="{count(./Objective) + count(./Indicator)}"  style="vertical-align:top;">
-	<div class="vertical-block" >
-	  <div class="inline">
-	  <img src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg" class="hint-icon-result"/>
-	  <xsl:value-of select="Name/text()" />
-	  </div>
-	  <div class="centered-block" >
-	    <xsl:call-template name="stats-bar-chart">
-	      <xsl:with-param name="stats" select="rsu:stats" />
-	    </xsl:call-template>
-	  </div>
-	</div>
-      </td>
+      <xsl:choose>
+	<xsl:when test="boolean(./Objective)"> 
+	  <td  style="vertical-align:top;"> 
+	    <div class="vertical-block" >
+	      <div class="inline">
+		<xsl:if test="boolean(rsu:stats/@success) and not(rsu:stats/@success = '')" >
+		  <img src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg" class="hint-icon-result"/>
+		</xsl:if>
+		<xsl:if test="not(Name/text())">This Goal has no name</xsl:if>
+		<xsl:value-of select="Name/text()" />
+	      </div>
+	      <div class="centered-block" >
+		<xsl:call-template name="stats-bar-chart">
+		  <xsl:with-param name="stats" select="rsu:stats" />
+		</xsl:call-template>
+	      </div>
+	    </div>
+	  </td>
+	</xsl:when>
+	<xsl:otherwise> 
+	  <td   style="vertical-align:top;"> 
+	    <div class="vertical-block" >
+	      <div class="inline">
+		<xsl:if test="boolean(rsu:stats/@success) and not(rsu:stats/@success = '')" >
+		  <img src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg" class="hint-icon-result"/>
+		</xsl:if>
+		<xsl:value-of select="Name/text()" />
+	      </div>
+	      <xsl:if test="boolean(rsu:stats/@success) and not(rsu:stats/@success = '')" >
+		<div class="centered-block" >
+		  <xsl:call-template name="stats-bar-chart">
+		    <xsl:with-param name="stats" select="rsu:stats" />
+		  </xsl:call-template>
+		</div>
+	      </xsl:if>
+	    </div>
+	  </td>
+	</xsl:otherwise>
+      </xsl:choose>
       <td>
-	<table class="objective">
-	<xsl:apply-templates select="Objective"/>
-
-
-	<!--
-	    <xsl:call-template name="pie-chart">
-	    <xsl:with-param name="stats" select="rsu:stats" />
-	    <xsl:with-param name="title" select="Name/text()" />
-	    <xsl:with-param name="radius" select="30" />
-	    </xsl:call-template>	
-	-->
-	</table>
+	<xsl:choose>
+	<xsl:when test="./Objective" >
+	  <table class="objective">
+	    <xsl:apply-templates select="Objective"/>
+	  </table>
+	</xsl:when>
+	<xsl:otherwise >
+	  This Goal has no objectives
+	</xsl:otherwise>
+	
+	</xsl:choose>
       </td>
     </tr>
   </xsl:template>
 
   <xsl:template match="Objective" >
-
       <tr>
 	<td class="objective-name" >
 	  <div class="inline">
@@ -153,21 +177,38 @@
 	  </div>
 	</td>
 	<td>
-	    <xsl:call-template name="horizontal-bar-chart">
-	      <xsl:with-param name="stats" select="rsu:stats" />
-	    </xsl:call-template>
-	    
+	    <xsl:if test="./rsu:stats" >
+	      <xsl:call-template name="horizontal-bar-chart">
+		<xsl:with-param name="stats" select="rsu:stats" />
+	      </xsl:call-template>
+	    </xsl:if>
+	    <xsl:choose>
+	      <xsl:when test="./PerformanceIndicator" >
+	      <table>
+		<xsl:apply-templates select="PerformanceIndicator"/>
+	      </table>
+	      </xsl:when>
+	      <xsl:otherwise>
+		This Objective does not have Performance Indicators
+	      </xsl:otherwise>
+	    </xsl:choose>
 	  </td>
       </tr>
-      <xsl:apply-templates select="PerformanceIndicator"/>
-
   </xsl:template>
 
   <xsl:template match="PerformanceIndicator" >
+
     <tr>
       <td colspan="2" style="padding-left:3em;" class="left">
-	<img src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg" class="hint-icon-result" />
-	<xsl:value-of select="MeasurementDimension/text()" />
+	<xsl:choose>
+	  <xsl:when test="not(rsu:stats) or (rsu:stats/@success = '') "  >
+	    The evaluation of this indicator may not have been configured.
+	  </xsl:when>
+	<xsl:otherwise>
+	  <img src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg" class="hint-icon-result" />
+	  <xsl:value-of select="MeasurementDimension/text()" />
+	</xsl:otherwise>
+	</xsl:choose>
       </td>
     </tr>
   </xsl:template>
