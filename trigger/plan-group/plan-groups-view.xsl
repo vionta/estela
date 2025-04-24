@@ -54,6 +54,19 @@
 	</tr>
 	<xsl:apply-templates  />
       </table>
+
+      <br/>
+      
+      <xsl:if test="not(.//plan-group)" >
+	<div class="message" >
+	  <a href="/new/plan-group.xml?entity=plan-group" >
+	    <h4>There are no plan groups to follow up.</h4>
+	    <p>Follow up is based on plan groups, in order to follow up a plan, create a
+	    plan group and add the plans to it. </p>
+	  </a>
+	</div>
+      </xsl:if>
+      
     </main>
   </body>
 </html>
