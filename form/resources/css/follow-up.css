@@ -102,4 +102,15 @@ div.diagram-line-small-diagrams {
 
 
 
+div.message {
+    text-align:center;
+    margin:auto;
+    max-width:35em;
+    padding:2em;
+    background-color: #f6f6f6;
+    border-top: 1px solid #2054a2 ;    
+}
+
+
+
 
