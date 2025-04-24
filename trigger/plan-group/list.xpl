@@ -32,11 +32,25 @@
     <p:for-each name="plans" >
       <p:with-input select="//*:plan/*:code"  />
       
-      <p:load name="load-plan-content"  >
-	<p:with-option
-	    name="href" select="concat('../../report/plan-evaluation/', code/text() , '.xml')" />
-      </p:load>
+      <p:try>
+	<p:group>
+	  <p:load name="load-plan-content"  >
+	    <p:with-option
+		name="href" select="concat('../../report/plan-evaluation/', code/text() , '.xml')" />
+	  </p:load>
+	</p:group>
+	<p:catch>
+	  <p:identity message="Plan {./*:code/text()} could not found">
+            <p:with-input>
+              <p:inline>
+		<err>Plan {./*:code/text()} could not be found</err>
+              </p:inline>
+            </p:with-input>
+	  </p:identity>
+	</p:catch>
+      </p:try>
 
+	  
     </p:for-each>
     <p:wrap-sequence name="stats-list" wrapper="stats" />
 
