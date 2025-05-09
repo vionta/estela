@@ -15,8 +15,8 @@
     <xsl:copy>
       <xsl:copy-of select="@*[not(rsu:result)]" />
 
-      <xsl:variable name="success-criteria-failure" select="boolean(string(./*:success-criteria/@rsu:success) = 'false')" />
-      <xsl:variable name="success-criteria-success" select="boolean(string(./*:success-criteria/@rsu:success) = 'true')" />
+      <xsl:variable name="success-criteria-failure" select="boolean(./*:success-criteria/@rsu:success = 'false')" />
+      <xsl:variable name="success-criteria-success" select="boolean(./*:success-criteria/@rsu:success = 'true')" />
 
       <xsl:choose>
 	<xsl:when
@@ -33,7 +33,7 @@
 	</xsl:when>
 
 	<xsl:when test="not($success-criteria-failure)
-			and boolean(@rsu:result-level) " >
+			and boolean(@rsu:result-level)" >
 
 	  <xsl:variable
 	      name="success-criteria-failure"
