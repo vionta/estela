@@ -9,12 +9,11 @@
 
 
 main {
-    width:45em;
+    width:var(--main-width-follow-up);
     margin:auto;
 }
 
 main * {
-    
     margin:auto;
 }
 
@@ -23,14 +22,15 @@ div.vertical-block {
     flex-direction:column;
 }
 
-div.vertical-block * {
-    text-align:left;
-}
 
 div.vertical-block * {
     text-align:center;
-    vertical-align:middle;
+    margin-top:var(--double-margin);
     margin:auto;
+}
+
+div.vertical-block > svg, div.vertical-block svg , td.indicator-column {
+    text-align:right;
 }
 
 div.title-line {
@@ -51,10 +51,14 @@ div.title-line > *  {
 div.diagram-line {
     display:flex;
     flex-direction:row ;
+    width: 90%;
+    
 }
 
 div.diagram-line * {
     vertical-align:bottom;
+    margin-left: var(--cuadruple-margin);
+    margin-right: var(--cuadruple-margin);
 }
 
 table.evaluation-view {
@@ -69,6 +73,12 @@ table.evaluation-view > tbody > tr > td {
 
 td {
     border:0;
+    vertical-align:top;
+}
+
+td.goal-name * {
+    margin-top:var(--mini-margin);
+    padding-top:var(--micro-margin);
 }
 
 table.objective {
