@@ -32,6 +32,15 @@ table.entity-list  td a, table.entity-list  td a:visited {
      color:#103265;
 }
 
+
+td.icon-buttons-cell {
+    simple:inline;
+    min-width: 8em;
+}
+
+td.icon-buttons-cell *{
+    margin-right: 0.5em;
+}
 /* ......... end buttons ........... */
 
 div.final-button-set {
