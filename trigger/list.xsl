@@ -31,7 +31,7 @@
 	  
 	  <xsl:when test="$entity = 'PerformancePlanOrReport' ">
 	    <table class="entity-list">
-	      <tr><th>Name</th><th>Date</th><th>Submitter</th><th/></tr>
+	      <tr><th>Plan</th><th>Organization</th><th>Submitter</th><th/></tr>
 	      <xsl:apply-templates select="//issues/*" />
 	    </table>
 	  </xsl:when>
@@ -107,20 +107,20 @@
 	<xsl:value-of select="Submitter/GivenName/text()" />
 	<xsl:value-of select="Submitter/Surname/text()" />
       </td>
-      <td >
+      <td class="icon-buttons-cell" >
 	<a name="borrar-{code/text()}" onclick="deleteDocument('{code/text()}','{$entity}')" ><img src="/resources/img/delete-blue-icon.svg" alt="Delete" /></a>
 
+	
+	
 	<a href="{concat('/form/',$entity, '/' ,  code/text(), '.xml')}"><img src="/resources/img/edit-blue-icon.svg" alt="Edit" /></a>
 
+	<a href="{concat('/form/plan-evaluation/' ,  code/text(), '.xml')}"><img src="/resources/img/configuration.svg" alt="Adjust evaluation" title="Adjust evaluation" /></a>
+	
+	 
 	<a href="{concat('/read/',$entity, '/' ,  code/text(), '.xml')}"> <img src="/resources/img/view-blue-icon.svg" alt="View" /> </a>
-    	<a href="{concat('/form/plan-evaluation/' ,  code/text(), '.xml')}"><img src="/resources/img/configuration.svg" alt="Adjust evaluation" title="Adjust evaluation" /></a>
-   	 </td>      
 
-      <!--
-      <td>
-	<a href="{concat('/plan-evaluation/' ,  code/text(), '.html')}"> TEMP </a>
-	</td>
-	-->
+
+      </td>      	
     </tr>
   </xsl:template>
 
