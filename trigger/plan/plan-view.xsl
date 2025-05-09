@@ -113,13 +113,14 @@
     <tr>
       <xsl:choose>
 	<xsl:when test="boolean(./Objective)"> 
-	  <td  style="vertical-align:top;"> 
+	  <td  style="vertical-align:top;" class="goal-name" > 
 	    <div class="vertical-block" >
 	      <div class="inline">
 		<xsl:if test="boolean(rsu:stats/@success) and not(rsu:stats/@success = '')" >
 		  <img src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg" class="hint-icon-result"/>
 		</xsl:if>
 		<xsl:if test="not(Name/text())">This Goal has no name</xsl:if>
+		<xsl:if test="boolean(./*:SequenceIndicator/text())"><xsl:value-of select="concat(./*:SequenceIndicator/text(), '. ')" /> </xsl:if>
 		<xsl:value-of select="Name/text()" />
 	      </div>
 	      <div class="centered-block" >
@@ -137,6 +138,8 @@
 		<xsl:if test="boolean(rsu:stats/@success) and not(rsu:stats/@success = '')" >
 		  <img src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg" class="hint-icon-result"/>
 		</xsl:if>
+		<xsl:if test="boolean(./*:SequenceIndicator/text())"><xsl:value-of select="concat(./*:SequenceIndicator/text(), ' ')" /> </xsl:if>
+
 		<xsl:value-of select="Name/text()" />
 	      </div>
 	      <xsl:if test="boolean(rsu:stats/@success) and not(rsu:stats/@success = '')" >
@@ -173,10 +176,11 @@
 	    <img
 		src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg"
 		class="hint-icon-result" />
+		<xsl:if test="boolean(./*:SequenceIndicator/text())"><xsl:value-of select="concat(./*:SequenceIndicator/text(), '. ')" /> </xsl:if>
 	      <xsl:value-of select="Name/text()" />
 	  </div>
 	</td>
-	<td>
+	<td class="indicator-column">
 	    <xsl:if test="./rsu:stats" >
 	      <xsl:call-template name="horizontal-bar-chart">
 		<xsl:with-param name="stats" select="rsu:stats" />
@@ -206,6 +210,9 @@
 	  </xsl:when>
 	<xsl:otherwise>
 	  <img src="/resources/img/success-{string(rsu:stats/@success)}-blue-icon.svg" class="hint-icon-result" />
+		<xsl:if test="boolean(./*:SequenceIndicator/text())"><xsl:value-of select="concat(./*:SequenceIndicator/text(), ' ')" /> </xsl:if>
+
+
 	  <xsl:value-of select="MeasurementDimension/text()" />
 	</xsl:otherwise>
 	</xsl:choose>
