@@ -24,6 +24,12 @@ div.internal-space button, element-buttons  button, element-content button {
     
 }
 
+
+.Name input {
+    width:30em ;
+}
+
+
 line.description , line.description *{
    margin-top:var(--micro-margin);
    padding-top:var(--micro-margin);
