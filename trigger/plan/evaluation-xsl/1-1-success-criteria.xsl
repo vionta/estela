@@ -29,11 +29,11 @@
       <xsl:copy-of select="@*" />
       <xsl:choose>
 	<xsl:when
-	    test="number(../MeasurementInstance/TargetResult/NumberOfUnits) > number(../MeasurementInstance/ActualResult/NumberOfUnits)" >
+	    test="number(../MeasurementInstance[last()]/TargetResult[last()]/NumberOfUnits) > number(../MeasurementInstance[last()]/ActualResult[last()]/NumberOfUnits)" >
 	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >false</xsl:attribute>
 	</xsl:when>
 	<xsl:when
-	    test="boolean(../MeasurementInstance/TargetResult/NumberOfUnits) and boolean(../MeasurementInstance/ActualResult/NumberOfUnits)" >
+	    test="boolean(../MeasurementInstance[last()]/TargetResult[last()]/NumberOfUnits) and boolean(../MeasurementInstance[last()]/ActualResult[last()]/NumberOfUnits)" >
 	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >true</xsl:attribute>
 	</xsl:when>
 	<xsl:otherwise>
@@ -54,12 +54,12 @@
       <xsl:copy-of select="@*" />
       <xsl:choose>
 	<xsl:when
-	    test="number(../MeasurementInstance/TargetResult/NumberOfUnits) >= number(../MeasurementInstance/ActualResult/NumberOfUnits)" >
-	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >false</xsl:attribute>
+	    test=" number(../MeasurementInstance[last()]/ActualResult[last()]/NumberOfUnits)  >= number(../MeasurementInstance[last()]/TargetResult[last()]/NumberOfUnits) " >
+	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >true</xsl:attribute>
 	</xsl:when>
 	<xsl:when
-	    test="boolean(../MeasurementInstance/TargetResult/NumberOfUnits) and boolean(../MeasurementInstance/ActualResult/NumberOfUnits)" >
-	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >true</xsl:attribute>
+	    test="boolean(../MeasurementInstance[last()]/TargetResult[last()]/NumberOfUnits) and boolean(../MeasurementInstance[last()]/ActualResult[last()]/NumberOfUnits)" >
+	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >false</xsl:attribute>
 	</xsl:when>
 	<xsl:otherwise>
 	  <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" ></xsl:attribute>
@@ -80,11 +80,11 @@
       <xsl:copy-of select="@*" />
       <xsl:choose>
 	<xsl:when
-	    test="number(../MeasurementInstance/ActualResult/NumberOfUnits) > number(../MeasurementInstance/TargetResult/NumberOfUnits) " >
+	    test="number(../MeasurementInstance[last()]/ActualResult[last()]/NumberOfUnits) > number(../MeasurementInstance[last()]/TargetResult[last()]/NumberOfUnits) " >
 	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >false</xsl:attribute>
 	</xsl:when>
 	<xsl:when
-	    test="boolean(../MeasurementInstance/TargetResult/NumberOfUnits) and boolean(../MeasurementInstance/ActualResult/NumberOfUnits)" >
+	    test="boolean(../MeasurementInstance[last()]/TargetResult[last()]/NumberOfUnits) and boolean(../MeasurementInstance[last()]/ActualResult[last()]/NumberOfUnits)" >
 	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >true</xsl:attribute>
 	</xsl:when>
 	<xsl:otherwise>
@@ -105,12 +105,12 @@
       <xsl:copy-of select="@*" />
       <xsl:choose>
 	<xsl:when
-	    test="number(../MeasurementInstance/TargetResult/NumberOfUnits) >= number(../MeasurementInstance/ActualResult/NumberOfUnits)" >
-	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >false</xsl:attribute>
+	    test="number(../MeasurementInstance[last()]/TargetResult[last()]/NumberOfUnits) > number(../MeasurementInstance[last()]/ActualResult[last()]/NumberOfUnits)" >
+	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >true</xsl:attribute>
 	</xsl:when>
 	<xsl:when
-	    test="boolean(../MeasurementInstance/TargetResult/NumberOfUnits) and boolean(../MeasurementInstance/ActualResult/NumberOfUnits)" >
-	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >true</xsl:attribute>
+	    test="boolean(../MeasurementInstance[last()]/TargetResult[last()]/NumberOfUnits) and boolean(../MeasurementInstance[last()]/ActualResult[last()]/NumberOfUnits)" >
+	    <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" >false</xsl:attribute>
 	</xsl:when>
 	<xsl:otherwise>
 	  <xsl:attribute name="success" namespace="http://www.vionta.net/xsd/stratml-results/1.0" ></xsl:attribute>
